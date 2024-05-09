@@ -4,9 +4,11 @@ import Link from "next/link";
 export default function Home() {
   return (
     <>
-      <header>
-        <Link className="text-red-500 font-semibold text-2xl" href="">ST PIZZA</Link>
-        <nav>
+      <header className="flex items-center justify-between">
+        <Link className="text-primary font-semibold text-2xl" href="">
+          ST PIZZA
+        </Link>
+        <nav className="flex gap-4">
           <Link href={''}>Home</Link>
           <Link href={''}>Menu</Link>
           <Link href={''}>About</Link>
