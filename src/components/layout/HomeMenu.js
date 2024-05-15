@@ -12,6 +12,14 @@ export default function HomeMenu() {
             alt={"salad"}
           />
         </div>
+        <div className="h-48 relative">
+          <Image
+            src={"/sallad2.png"}
+            layout={"fill"}
+            objectFit={"contain"}
+            alt={"salad"}
+          />
+        </div>
       </div>
       <div className="text-center">
         <h3 className="uppercase text-gray-600 font-semibold leading-4">
