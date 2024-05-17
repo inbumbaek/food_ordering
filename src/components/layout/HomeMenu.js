@@ -18,11 +18,11 @@ export default function HomeMenu() {
         <h2 className="text-primary font-bold text-4xl italic">Menu</h2>
       </div>
       <div className="grid grid-cols-3 gap-4">
-        <div className="bg-gray-300 p-4 rounded-lg text-center">
+        <div className="bg-gray-200 p-4 rounded-lg text-center">
           <img src="/pizza.png" alt="pizza" />
-          <h4 className="font-semibold text-xl my-2">Pepperoni Pizza</h4>
+          <h4 className="font-semibold text-xl my-3">Pepperoni Pizza</h4>
           <p className="text-gray-500 text-sm"></p>
-          <button className="bg-primary text-white rounded-full px-6 py-2">
+          <button className="mt-4 bg-primary text-white rounded-full px-8 py-2">
             Add to card $12
           </button>
         </div>
