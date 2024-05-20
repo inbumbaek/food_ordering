@@ -8,6 +8,9 @@ export default function Home() {
       <Header />
       <Hero />
       <HomeMenu />
+      <section>
+        
+      </section>
     </>
   );
 }
