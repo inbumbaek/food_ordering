@@ -9,11 +9,13 @@ export default function Home() {
       <Header />
       <Hero />
       <HomeMenu />
-      <section>
-        <SectionHeaders
-        subHeader={'Our story'}
-        mainHeader={'About us'}
-        />
+      <section className="text-center my-16">
+        <SectionHeaders subHeader={"Our story"} mainHeader={"About us"} />
+        <div className="text-gray-500 max-w-md mx-auto mt-4 flex flex-col gap-4">
+          <p>pizza</p>
+          <p>pizza</p>
+          <p>pizza</p>
+        </div>
       </section>
     </>
   );
