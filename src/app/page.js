@@ -17,6 +17,13 @@ export default function Home() {
           <p>pizza</p>
         </div>
       </section>
+      <section>
+        <SectionHeaders
+          subHeader={"Don't hesitate"}
+          mainHeader={"Contact us"}
+        />
+        <a href="">4564654654</a>
+      </section>
     </>
   );
 }
