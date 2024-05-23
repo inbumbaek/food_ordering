@@ -22,7 +22,12 @@ export default function Home() {
           subHeader={"Don't hesitate"}
           mainHeader={"Contact us"}
         />
-        <a href="">4564654654</a>
+        <div className="mt-8">
+          <a className="text-4xl" href="tel:4564654654">
+            +45 646 54654
+          </a>
+        </div>
+        
       </section>
     </>
   );
