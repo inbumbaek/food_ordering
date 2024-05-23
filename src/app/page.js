@@ -17,7 +17,7 @@ export default function Home() {
           <p>pizza</p>
         </div>
       </section>
-      <section>
+      <section className="text-center my-16">
         <SectionHeaders
           subHeader={"Don't hesitate"}
           mainHeader={"Contact us"}
