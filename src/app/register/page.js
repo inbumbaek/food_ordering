@@ -4,6 +4,11 @@ export default function RegisterPage() {
       <h1 className="text-center text-primary text-4xl">
         Register
       </h1>
+      <form>
+        <input type="email" placeholder="email" />
+        <input type="password" placeholder="password" />
+        <button type="submit">Register</button>
+      </form>
     </section>
   )
 }
