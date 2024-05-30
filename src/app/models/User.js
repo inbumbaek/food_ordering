@@ -9,9 +9,8 @@ const UserSchema = new Schema({
       if (!pass?.length || pass.length < 5) {
         new Error('password must be at least 5 characters');
       }
-      pass;
     },
   },
-});
+}, {timestamps: true});
 
-
+export const User = models?.User || model('User, UserSchema');
