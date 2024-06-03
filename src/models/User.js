@@ -14,4 +14,9 @@ const UserSchema = new Schema({
   },
 }, {timestamps: true});
 
+UserSchema.pre('save', (next, ...rest) => {
+  console.log();
+  next();
+})
+
 export const User = models?.User || model('User, UserSchema');
