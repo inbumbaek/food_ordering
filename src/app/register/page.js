@@ -5,7 +5,7 @@ import { useState } from "react";
 export default function RegisterPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [creatingUser, setCreatingUser] = useState(false);
+  const [creatingUser, setCreatingUser] = useState(true);
   const [useCreated, setUserCreated] = useState(false);
   async function handleFormSubmit(ev) {
     ev.preventDefault();
