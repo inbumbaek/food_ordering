@@ -5,7 +5,7 @@ import { useState } from "react";
 export default function RegisterPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [creatingUser, setCreatingUser] = useState(true);
+  const [creatingUser, setCreatingUser] = useState(false);
   const [useCreated, setUserCreated] = useState(false);
   async function handleFormSubmit(ev) {
     ev.preventDefault();
@@ -22,6 +22,13 @@ export default function RegisterPage() {
       <h1 className="text-center text-primary text-4xl mb-4">
         Register
       </h1>
+      {userCreated && (
+        <div className="my-4 text-center">
+          User created.<br />
+          Now you can{' '} 
+          <Link className="underline" href={'/login'}>Login &raquo;</Link>
+        </div>
+      )}
       <form className="block max-w-xs mx-auto" onSubmit={handleFormSubmit}>
         <input
           type="email"
