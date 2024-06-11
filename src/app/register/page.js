@@ -35,6 +35,12 @@ export default function RegisterPage() {
           <Link className="underline" href={'/login'}>Login &raquo;</Link>
         </div>
       )}
+      {error && (
+        <div className="my-4 text-center">
+          Error.<br />
+          Please try again later
+        </div>
+      )}
       <form className="block max-w-xs mx-auto" onSubmit={handleFormSubmit}>
         <input
           type="email"
