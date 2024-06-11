@@ -7,15 +7,21 @@ export default function RegisterPage() {
   const [password, setPassword] = useState("");
   const [creatingUser, setCreatingUser] = useState(false);
   const [useCreated, setUserCreated] = useState(false);
+  const [error, setError] = useState(false);
   async function handleFormSubmit(ev) {
     ev.preventDefault();
     setCreatingUser(true);
-    fetch("/api/register", {
-      method: "POST",
-      body: JSON.stringify({ email, password }),
-      headers: { "Content-Type": "application/json" },
+    try {
+      await fetch("/api/register", {
+        method: "POST",
+        body: JSON.stringify({ email, password }),
+        headers: { "Content-Type": "application/json" },
     });
     setCreatingUser(false);
+    setUserCreated(true);
+    } catch (e) {
+      setError(true);
+    }
   }
   return (
     <section className="mt-8">
