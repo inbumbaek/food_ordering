@@ -11,33 +11,36 @@ export default function RegisterPage() {
   async function handleFormSubmit(ev) {
     ev.preventDefault();
     setCreatingUser(true);
-    try {
-      await fetch("/api/register", {
-        method: "POST",
-        body: JSON.stringify({ email, password }),
-        headers: { "Content-Type": "application/json" },
+    const response = await fetch("/api/register", {
+      method: "POST",
+      body: JSON.stringify({ email, password }),
+      headers: { "Content-Type": "application/json" },
     });
-    setCreatingUser(false);
-    setUserCreated(true);
-    } catch (e) {
+    if (response.ok) {
+      setUserCreated(true);
+    }
+    else {
       setError(true);
     }
+    setCreatingUser(false);
   }
   return (
     <section className="mt-8">
-      <h1 className="text-center text-primary text-4xl mb-4">
-        Register
-      </h1>
+      <h1 className="text-center text-primary text-4xl mb-4">Register</h1>
       {userCreated && (
         <div className="my-4 text-center">
-          User created.<br />
-          Now you can{' '} 
-          <Link className="underline" href={'/login'}>Login &raquo;</Link>
+          User created.
+          <br />
+          Now you can{" "}
+          <Link className="underline" href={"/login"}>
+            Login &raquo;
+          </Link>
         </div>
       )}
       {error && (
         <div className="my-4 text-center">
-          Error.<br />
+          An error has occurred.
+          <br />
           Please try again later
         </div>
       )}
