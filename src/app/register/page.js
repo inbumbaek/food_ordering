@@ -11,6 +11,8 @@ export default function RegisterPage() {
   async function handleFormSubmit(ev) {
     ev.preventDefault();
     setCreatingUser(true);
+    setError(false);
+    setUserCreated(false);
     const response = await fetch("/api/register", {
       method: "POST",
       body: JSON.stringify({ email, password }),
