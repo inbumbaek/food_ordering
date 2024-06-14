@@ -71,8 +71,9 @@ export default function RegisterPage() {
           <Image src={"/google.png"} alt={""} width={24} height={24} />
           Login with google
         </button>
-        <div>
-          Existing account? <Link href={'/login'}>Login here</Link>
+        <div className="text-center my-4">
+          Existing account?{' '}
+          <Link className="underline" href={'/login'}>Login here &raqup;</Link>
         </div>
       </form>
     </section>
