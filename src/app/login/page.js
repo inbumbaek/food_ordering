@@ -1,6 +1,9 @@
 'use client'
+import {useState} from 'react';
 
 export default function LoginPage() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   return (
     <section>
       <h1 className="text-center text-primary text-4xl mb-4">Login</h1>
