@@ -7,7 +7,7 @@ export default function LoginPage() {
   return (
     <section>
       <h1 className="text-center text-primary text-4xl mb-4">Login</h1>
-      <form>
+      <form className="max-w-xs mx-auto">
         <input
           type="email"
           placeholder="email"
@@ -22,6 +22,7 @@ export default function LoginPage() {
           disabled={false}
           onChange={(ev) => setPassword(ev.target.value)}
         />
+        <button type="submit">Login</button>
       </form>
     </section>
   );
