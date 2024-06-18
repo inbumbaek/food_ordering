@@ -12,14 +12,14 @@ export default function LoginPage() {
           type="email"
           placeholder="email"
           value={email}
-          disabled={creatingUser}
+          disabled={false}
           onChange={(ev) => setEmail(ev.target.value)}
         />
         <input
           type="password"
           placeholder="password"
           value={password}
-          disabled={creatingUser}
+          disabled={false}
           onChange={(ev) => setPassword(ev.target.value)}
         />
       </form>
