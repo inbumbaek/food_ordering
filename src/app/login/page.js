@@ -4,10 +4,18 @@ import {useState} from 'react';
 export default function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  async function handleFormSubmit(ev) {
+    ev.preventDefault();
+    const response = await fetch('/api/login', {
+      body: JSON.stringify({email, password}),
+      headers: {'Content-Type': 'application/json'},
+      method: 'POST',
+    });
+  }
   return (
     <section>
       <h1 className="text-center text-primary text-4xl mb-4">Login</h1>
-      <form className="max-w-xs mx-auto">
+      <form className="max-w-xs mx-auto" onSubmit={handleFormSubmit}>
         <input
           type="email"
           placeholder="email"
