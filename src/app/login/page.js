@@ -5,8 +5,11 @@ import {useState} from 'react';
 export default function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [loginInProgress, setLoginInProgress] = useState(false);
+
   async function handleFormSubmit(ev) {
     ev.preventDefault();
+    setLoginInProgress(true);
     const {ok} = await fetch('/api/login', {
       body: JSON.stringify({email, password}),
       headers: {'Content-Type': 'application/json'},
@@ -17,6 +20,7 @@ export default function LoginPage() {
     } else {
 
     }
+    setLoginInProgress(false);
 }
   return (
     <section>
