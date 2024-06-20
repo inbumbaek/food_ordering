@@ -1,4 +1,5 @@
 'use client'
+import Image from 'next/image';
 import {useState} from 'react';
 
 export default function LoginPage() {
@@ -6,12 +7,17 @@ export default function LoginPage() {
   const [password, setPassword] = useState("");
   async function handleFormSubmit(ev) {
     ev.preventDefault();
-    const response = await fetch('/api/login', {
+    const {ok} = await fetch('/api/login', {
       body: JSON.stringify({email, password}),
       headers: {'Content-Type': 'application/json'},
       method: 'POST',
     });
-  }
+    if (ok){
+      
+    } else {
+
+    }
+}
   return (
     <section>
       <h1 className="text-center text-primary text-4xl mb-4">Login</h1>
@@ -34,7 +40,7 @@ export default function LoginPage() {
         <div className="my-4 text-center text-gray-500">
           or login with provider
         </div>
-        <button className="flex gap-4 justify-center">
+        <button disabled={false} className="flex gap-4 justify-center">
           <Image src={"/google.png"} alt={""} width={24} height={24} />
           Login with google
         </button>
