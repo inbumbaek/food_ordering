@@ -10,7 +10,11 @@ const handler = NextAuth({
         password: { label: "Password", type: "password" }
       },
       async authorize(credentials, req) {
-        // Add logic here to look up the user from the credentials supplied
+        const res = await fetch("/your/endpoint", {
+          method: 'POST',
+          body: JSON.stringify(credentials),
+          headers: { "Content-Type": "application/json" }
+        })
         const user = { id: "1", name: "J Smith", email: "jsmith@example.com" }
   
         if (user) {
