@@ -10,22 +10,15 @@ export default function LoginPage() {
   async function handleFormSubmit(ev) {
     ev.preventDefault();
     setLoginInProgress(true);
-    const {ok} = await fetch('/api/login', {
-      body: JSON.stringify({email, password}),
-      headers: {'Content-Type': 'application/json'},
-      method: 'POST',
-    });
-    if (ok){
-      
-    } else {
 
-    }
+    await signIn('Credentials');
+
     setLoginInProgress(false);
 }
   return (
     <section>
       <h1 className="text-center text-primary text-4xl mb-4">Login</h1>
-      <form className="max-w-xs mx-auto" method="POST" action="/api/auth">
+      <form className="max-w-xs mx-auto" onSubmit={handleFormSubmit}>
         <input
           type="email"
           name="email"
