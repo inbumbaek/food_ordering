@@ -15,20 +15,16 @@ const handler = NextAuth({
           body: JSON.stringify(credentials),
           headers: { "Content-Type": "application/json" }
         })
-        const user = { id: "1", name: "J Smith", email: "jsmith@example.com" }
+        const user = await res.json()
   
-        if (user) {
-          // Any object returned will be saved in `user` property of the JWT
+        if (res.ok && user) {
+
           return user
-        } else {
-          // If you return null then an error will be displayed advising the user to check their details.
-          return null
-  
-          // You can also Reject this callback with an Error thus the user will be sent to the error page with the error message as a query parameter
         }
+        return null
       }
     })
-  ]
+  ],
 });
 
 export { handler as GET, handler as POST}
