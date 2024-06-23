@@ -25,9 +25,10 @@ export default function LoginPage() {
   return (
     <section>
       <h1 className="text-center text-primary text-4xl mb-4">Login</h1>
-      <form className="max-w-xs mx-auto" onSubmit={handleFormSubmit}>
+      <form className="max-w-xs mx-auto" method="POST" action="/api/auth">
         <input
           type="email"
+          name="email"
           placeholder="email"
           value={email}
           disabled={loginInProgress}
@@ -35,6 +36,7 @@ export default function LoginPage() {
         />
         <input
           type="password"
+          name="password"
           placeholder="password"
           value={password}
           disabled={loginInProgress}
