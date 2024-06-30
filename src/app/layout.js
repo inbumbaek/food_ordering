@@ -17,13 +17,11 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={roboto.className}>
         <main className="max-w-4xl mx-auto p-4">
-          <SessionProvider>
             <Header />
           {children}
           <footer className="border-t p-8 text-center text-gray-500 mt-16">
             &copy; 2023 All rights reserved
           </footer>
-          </SessionProvider>
         </main>
       </body>
     </html>
