@@ -25,7 +25,7 @@ export default function Header() {
             Logout
           </button>
         )}
-        {status !== "authenticated" && (
+        {status === "authenticated" && (
           <>
             <Link href={"/login"}>Login</Link>
             <Link
