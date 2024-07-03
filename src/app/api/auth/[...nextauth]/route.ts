@@ -1,5 +1,6 @@
 import * as mongoose from "mongoose";
-import {User} from '@/models/User'
+import {User} from '@/models/User';
+import bcrypt from "bcrypt";
 import NextAuth from "next-auth"
 import CredentialsProvider from "next-auth/providers/credentials";
 import GoogleProvider from "next-auth/providers/google"
@@ -8,15 +9,15 @@ const handler = NextAuth({
   secret: process.env.SECRET,
   providers: [
     GoogleProvider({
-      clientID: process.env.GOOGLE_CLIENT_ID,
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET
-    })
+      clientId: process.env.GOOGLE_CLIENT_ID,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+    }),
     CredentialsProvider({
-      name: "Credentials",
+      name: 'Credentials',
       id: 'credentials',
       credentials: {
         username: { label: "Email", type: "email", placeholder: "test@example.com" },
-        password: { label: "Password", type: "password" }
+        password: { label: "Password", type: "password" },
       },
       async authorize(credentials, req) {
         const email = credentials?.email;
