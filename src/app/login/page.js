@@ -1,6 +1,6 @@
-'use client'
-import Image from 'next/image';
-import {useState} from 'react';
+"use client";
+import Image from "next/image";
+import { useState } from "react";
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");
@@ -11,10 +11,10 @@ export default function LoginPage() {
     ev.preventDefault();
     setLoginInProgress(true);
 
-    await signIn('credentials', {email, password});
+    await signIn("credentials", { email, password });
 
     setLoginInProgress(false);
-}
+  }
   return (
     <section>
       <h1 className="text-center text-primary text-4xl mb-4">Login</h1>
@@ -35,11 +35,16 @@ export default function LoginPage() {
           disabled={loginInProgress}
           onChange={(ev) => setPassword(ev.target.value)}
         />
-        <button disabled={loginInProgress} type="submit">Login</button>
+        <button disabled={loginInProgress} type="submit">
+          Login
+        </button>
         <div className="my-4 text-center text-gray-500">
           or login with provider
         </div>
-        <button className="flex gap-4 justify-center">
+        <button
+          onClick={() => signIn("google", { callbackUrl: "/" })}
+          className="flex gap-4 justify-center"
+        >
           <Image src={"/google.png"} alt={""} width={24} height={24} />
           Login with google
         </button>
