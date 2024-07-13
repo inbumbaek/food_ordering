@@ -5,7 +5,7 @@ import Link from "next/link";
 export default function Header() {
   const session = useSession();
   const userData = session.data.user;
-  const userName = userData.name;
+  const userName = userData.name || userData.email;
   return (
     <header className="flex items-center justify-between">
       <nav className="flex items-center gap-8 text-gray-500 font-semibold">
@@ -20,7 +20,7 @@ export default function Header() {
       <nav className="flex items-center gap-4 text-gray-500 font-semibold">
         {status === "authenticated" && (
           <>
-            <Link href={'/profile'}>Profile</Link>
+            <Link href={'/profile'}>{userName}</Link>
             <button
               onClick={() => signOut()}
               className="bg-primary rounded-full text-white px-8 py-2"
