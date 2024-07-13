@@ -4,6 +4,7 @@ import Link from "next/link";
 
 export default function Header() {
   const session = useSession();
+  const status = session?.status;
   const userData = session.data?.user;
   const userName = userData?.name || userData?.email;
   return (
