@@ -22,13 +22,14 @@ export default function ProfilePage() {
       <h1 className="text-center text-primary text-4xl mb-4">
         Profile
       </h1>
-      <form className="max-w-xs mx-auto border">
-        <div className="flex">
+      <form className="max-w-md mx-auto">
+        <div className="flex gap-2 items-center">
           <div>
-            <Image src={userImage} width={64} height={64} alt={'avatar'} />
+            <Image src={userImage} width={80} height={80} alt={'avatar'} />
           </div>
-          <div>
+          <div className="grow">
             <input type="text" placeholder="First and last name"/>
+            <button type="submit">Save</button>
           </div>
         </div>
       </form>
