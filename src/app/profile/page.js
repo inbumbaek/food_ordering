@@ -23,8 +23,13 @@ export default function ProfilePage() {
         Profile
       </h1>
       <form className="max-w-xs mx-auto border">
-        <div>
-          <Image src={userImage} width={64} height={64} alt={'avatar'} />
+        <div className="flex">
+          <div>
+            <Image src={userImage} width={64} height={64} alt={'avatar'} />
+          </div>
+          <div>
+            <input type="text" placeholder="First and last name"/>
+          </div>
         </div>
       </form>
     </section>
