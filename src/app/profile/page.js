@@ -27,8 +27,8 @@ export default function ProfilePage() {
               <Image
                 className="rounded-lg w-full h-full"
                 src={userImage}
-                width={0}
-                height={0}
+                width={250}
+                height={250}
                 alt={"avatar"}
               />
               <button type="button">Change avatar</button>
