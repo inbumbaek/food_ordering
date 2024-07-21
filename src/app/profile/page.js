@@ -5,6 +5,7 @@ import { redirect } from "next/navigation";
 
 export default function ProfilePage() {
   const session = useSession();
+  const [userName, setUserName] = useState(session?.data?.user?.name || '');
   const { status } = session;
 
   if (status === "loading") {
