@@ -25,17 +25,18 @@ export default function ProfilePage() {
           <div>
             <div className="p-4 rounded-lg relative">
               <Image
-                className="rounded-lg w-full h-full"
+                className="rounded-lg w-full h-full mb-1"
                 src={userImage}
                 width={250}
                 height={250}
                 alt={"avatar"}
               />
-              <button type="button">Change avatar</button>
+              <button type="button">Edit</button>
             </div>
           </div>
           <div className="grow">
             <input type="text" placeholder="First and last name" />
+            <input type="email" disabled={true} value={session.data.user.email}/>
             <button type="submit">Save</button>
           </div>
         </div>
