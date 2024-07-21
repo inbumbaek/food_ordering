@@ -24,15 +24,13 @@ export default function ProfilePage() {
         <div className="flex gap-4 items-center">
           <div>
             <div className="p-4 rounded-lg relative">
-              <div className="relative">
-                <Image
-                  className="rounded-lg"
-                  src={userImage}
-                  layout={"fill"}
-                  objectFit={"contain"}
-                  alt={"avatar"}
-                />
-              </div>
+              <Image
+                className="rounded-lg w-full h-full"
+                src={userImage}
+                width={0}
+                height={0}
+                alt={"avatar"}
+              />
               <button type="button">Change avatar</button>
             </div>
           </div>
