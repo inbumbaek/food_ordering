@@ -36,7 +36,7 @@ export default function ProfilePage() {
             </div>
           </div>
           <div className="grow">
-            <input type="text" placeholder="First and last name" />
+            <input type="text" placeholder="First and last name" value={userName} onChange={ev => setUserName(ev.target.value)}/>
             <input type="email" disabled={true} value={session.data.user.email}/>
             <button type="submit">Save</button>
           </div>
