@@ -35,11 +35,11 @@ export default function ProfilePage() {
               <button type="button">Edit</button>
             </div>
           </div>
-          <div className="grow">
+          <form className="grow" onSubmit={handleProfileInfoUpdate}>
             <input type="text" placeholder="First and last name" value={userName} onChange={ev => setUserName(ev.target.value)}/>
             <input type="email" disabled={true} value={session.data.user.email}/>
             <button type="submit">Save</button>
-          </div>
+          </form>
         </div>
       </form>
     </section>
