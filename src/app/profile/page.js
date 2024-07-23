@@ -8,6 +8,16 @@ export default function ProfilePage() {
   const [userName, setUserName] = useState(session?.data?.user?.name || '');
   const { status } = session;
 
+
+  async function handleProfileInfoUpdate(ev) {
+    ev.preventDefault();
+    const response = await fetch('/api/profile', {
+      method: 'POST';
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({name:userName}),
+    })
+  }
+
   if (status === "loading") {
     return "Loading...";
   }
