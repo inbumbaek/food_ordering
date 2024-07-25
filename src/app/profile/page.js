@@ -12,7 +12,7 @@ export default function ProfilePage() {
   async function handleProfileInfoUpdate(ev) {
     ev.preventDefault();
     const response = await fetch('/api/profile', {
-      method: 'POST';
+      method: 'PUT',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({name:userName}),
     })
