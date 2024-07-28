@@ -13,6 +13,8 @@ export async function PUT(req) {
 
   if ('name' in data) {
 
+    await User.updateOne({email}, {name:data.name});
+
   }
 
   return Response.json(true);
