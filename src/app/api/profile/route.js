@@ -12,10 +12,7 @@ export async function PUT(req) {
   const user = await User.findOne({ email });
 
   if ("name" in data) {
-    // const result = await User.updateOne({email}, {name:data.name});
-    const user = await User.findOne({ email });
-    user.name = data.name;
-    await user.save();
+    const result = await User.updateOne({email}, {name:data.name});
   }
 
   return Response.json(true);
