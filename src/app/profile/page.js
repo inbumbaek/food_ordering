@@ -37,7 +37,7 @@ export default function ProfilePage() {
   return (
     <section className="mt-8">
       <h1 className="text-center text-primary text-4xl mb-4">Profile</h1>
-      <h2>Profile saved!</h2>
+      <h2 className="text-center">Profile saved!</h2>
       <form className="max-w-md mx-auto">
         <div className="flex gap-4 items-center">
           <div>
