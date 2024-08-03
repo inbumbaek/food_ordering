@@ -38,7 +38,7 @@ export default function ProfilePage() {
     <section className="mt-8">
       <h1 className="text-center text-primary text-4xl mb-4">Profile</h1>
       <div className="max-w-md mx-auto">
-        <h2 className="text-center bg-green-200 p-4">Profile saved!</h2>
+        <h2 className="text-center bg-green-100 p-4 rounded-lg border-1 border-green-300">Profile saved!</h2>
         <div className="flex gap-4 items-center">
           <div>
             <div className="p-4 rounded-lg relative">
