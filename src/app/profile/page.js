@@ -8,6 +8,7 @@ export default function ProfilePage() {
   const session = useSession();
   const [userName, setUserName] = useState("");
   const [saved, setSaved] = useState(false);
+  const [isSaving, setIsSaving] = useState(false);
   const { status } = session;
 
   useEffect(() => {
@@ -19,12 +20,13 @@ export default function ProfilePage() {
   async function handleProfileInfoUpdate(ev) {
     ev.preventDefault();
     setSaved(false);
+    setIsSaving(true);
     const response = await fetch("/api/profile", {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ name: userName }),
     });
-  }
+    setIsSaving(false);
   if (response.ok) {
     setSaved(true);
   }
