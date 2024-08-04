@@ -49,7 +49,7 @@ export default function ProfilePage() {
           <h2 className="text-center bg-green-100 p-4 rounded-lg border-1 border-green-300">Profile saved!</h2>
         )}
         {isSaving && (
-          <h2 className="text-center bg-green-100 p-4 rounded-lg border-1 border-green-300">Saving...</h2>
+          <h2 className="text-center bg-blue-100 p-4 rounded-lg border-1 border-blue-300">Saving...</h2>
         )}
         <div className="flex gap-4 items-center">
           <div>
