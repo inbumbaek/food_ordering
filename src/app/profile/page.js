@@ -61,6 +61,7 @@ export default function ProfilePage() {
                 height={250}
                 alt={"avatar"}
               />
+              <input type="file" className="hidden"/>
               <button type="button">Edit</button>
             </div>
           </div>
