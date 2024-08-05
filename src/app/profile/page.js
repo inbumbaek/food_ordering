@@ -61,8 +61,10 @@ export default function ProfilePage() {
                 height={250}
                 alt={"avatar"}
               />
-              <input type="file" className="hidden"/>
-              <button type="button">Edit</button>
+              <label>
+                <input type="file" className="hidden"/>
+                <span>Edit</span>
+              </label>
             </div>
           </div>
           <form className="grow" onSubmit={handleProfileInfoUpdate}>
