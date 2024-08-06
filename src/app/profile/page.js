@@ -63,7 +63,7 @@ export default function ProfilePage() {
               />
               <label>
                 <input type="file" className="hidden"/>
-                <span className="block border rounded-lg p-2 text-center">Edit</span>
+                <span className="block border border-gray-300 rounded-lg p-2 text-center">Edit</span>
               </label>
             </div>
           </div>
