@@ -27,8 +27,16 @@ export default function ProfilePage() {
       body: JSON.stringify({ name: userName }),
     });
     setIsSaving(false);
-  if (response.ok) {
-    setSaved(true);
+    if (response.ok) {
+      setSaved(true);
+    }
+  }
+
+  function handleFileChange(ev) {
+    const files = ev?.files;
+    if (files?.length > 0) {
+      
+    }
   }
 
   if (status === "loading") {
@@ -46,10 +54,14 @@ export default function ProfilePage() {
       <h1 className="text-center text-primary text-4xl mb-4">Profile</h1>
       <div className="max-w-md mx-auto">
         {saved && (
-          <h2 className="text-center bg-green-100 p-4 rounded-lg border-1 border-green-300">Profile saved!</h2>
+          <h2 className="text-center bg-green-100 p-4 rounded-lg border-1 border-green-300">
+            Profile saved!
+          </h2>
         )}
         {isSaving && (
-          <h2 className="text-center bg-blue-100 p-4 rounded-lg border-1 border-blue-300">Saving...</h2>
+          <h2 className="text-center bg-blue-100 p-4 rounded-lg border-1 border-blue-300">
+            Saving...
+          </h2>
         )}
         <div className="flex gap-4 items-center">
           <div>
@@ -62,8 +74,14 @@ export default function ProfilePage() {
                 alt={"avatar"}
               />
               <label>
-                <input type="file" className="hidden"/>
-                <span className="block border border-gray-300 rounded-lg p-2 text-center">Edit</span>
+                <input
+                  type="file"
+                  className="hidden"
+                  onChange={handleFileChange}
+                />
+                <span className="block border border-gray-300 rounded-lg p-2 text-center cursor-pointer">
+                  Edit
+                </span>
               </label>
             </div>
           </div>
