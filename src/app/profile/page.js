@@ -36,11 +36,12 @@ export default function ProfilePage() {
     const files = ev.files;
     if (files?.length > 0) {
       const data = new FormData;
-      data.set('files', files);
-      await fetch('/api/upload', {
-        method: 'POST',
+      data.set("files", files);
+      await fetch("/api/upload", {
+        method: "POST",
         body: null,
-      })
+        headers: { "Content-Type": "multipart/form-data" },
+      });
     }
   }
 
