@@ -40,7 +40,7 @@ export default function ProfilePage() {
       await fetch("/api/upload", {
         method: "POST",
         body: null,
-        headers: { "Content-Type": "multipart/form-data" },
+        // headers: { "Content-Type": "multipart/form-data" },
       });
     }
   }
