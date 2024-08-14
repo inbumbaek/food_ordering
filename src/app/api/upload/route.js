@@ -9,7 +9,16 @@ export async function POST(req) {
         accessKeyId: process.env.AWS_ACCESS_KEY,
         secretAccessKey: process.env.AWS_SECRET_KEY,
       }
-    })
+    });
+
+    const ext = file.name.split(',').slice(-1);
+
+
+    // s3Client.send(new PutObjectCommand({
+    //   Bucket: 'inbum-food-ordering',
+    //   Key: '',
+    // }))
+
   }
   return Response.json(true);
 }
