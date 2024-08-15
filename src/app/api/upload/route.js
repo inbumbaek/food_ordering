@@ -1,3 +1,6 @@
+import { PutObjectCommand, S3Client } from "@aws-sdk/client-s3";
+import uniqid from 'uniqid';
+
 export async function POST(req) {
   const data = await req.formData()
   if (data.get('file')) {
@@ -12,12 +15,14 @@ export async function POST(req) {
     });
 
     const ext = file.name.split(',').slice(-1)[0];
+    const newFileName = uniqid() + ',' + ext;
 
 
-    // s3Client.send(new PutObjectCommand({
-    //   Bucket: 'inbum-food-ordering',
-    //   Key: '',
-    // }))
+    await s3Client.send(new PutObjectCommand({
+      Bucket: 'inbum-food-ordering',
+      Key: newFileName,
+      ACL: 'public-read',
+    }))
 
   }
   return Response.json(true);
