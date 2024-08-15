@@ -22,6 +22,8 @@ export async function POST(req) {
       Bucket: 'inbum-food-ordering',
       Key: newFileName,
       ACL: 'public-read',
+      ContentType: file.type,
+      Body: buffer,
     }))
 
   }
