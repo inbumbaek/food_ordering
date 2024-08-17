@@ -23,14 +23,17 @@ export async function POST(req) {
     }
     const buffer = Buffer.concat(chunks);
 
+    const bucket = 'inbum-food-ordering';
     await s3Client.send(new PutObjectCommand({
-      Bucket: 'inbum-food-ordering',
+      Bucket: bucket,
       Key: newFileName,
       ACL: 'public-read',
       ContentType: file.type,
       Body: buffer,
     }))
 
+    const link = 'https://'+bucket+' .s3.amazonaws.com/'+newFileName;
+    return Response.json('link')
   }
   return Response.json(true);
 }
