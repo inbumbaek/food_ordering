@@ -32,7 +32,7 @@ export async function POST(req) {
       Body: buffer,
     }))
 
-    const link = 'https://'+bucket+' .s3.amazonaws.com/'+newFileName;
+    // const link = 'https://'+bucket+' .s3.amazonaws.com/'+newFileName;
     return Response.json('link')
   }
   return Response.json(true);
