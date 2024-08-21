@@ -37,10 +37,9 @@ export default function ProfilePage() {
     if (files?.length === 1) {
       const data = new FormData;
       data.set("file", files[0]);
-      await fetch("/api/upload", {
+      const response = await fetch("/api/upload", {
         method: "POST",
-        body: null,
-        // headers: { "Content-Type": "multipart/form-data" },
+        body: data,
       });
     }
   }
