@@ -41,6 +41,7 @@ export default function ProfilePage() {
         method: "POST",
         body: data,
       });
+      const json = await response.json();
     }
   }
 
