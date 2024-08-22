@@ -44,6 +44,7 @@ export default function ProfilePage() {
         body: data,
       });
       const link = await response.json();
+      setIamge(link);
     }
   }
 
