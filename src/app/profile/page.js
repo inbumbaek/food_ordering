@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 export default function ProfilePage() {
   const session = useSession();
   const [userName, setUserName] = useState("");
-  const [image, setIamge] = useState('');
+  const [image, setIamge] = useState("");
   const [saved, setSaved] = useState(false);
   const [isSaving, setIsSaving] = useState(false);
   const { status } = session;
@@ -37,7 +37,7 @@ export default function ProfilePage() {
   async function handleFileChange(ev) {
     const files = ev.target.files;
     if (files?.length === 1) {
-      const data = new FormData;
+      const data = new FormData();
       data.set("file", files[0]);
       const response = await fetch("/api/upload", {
         method: "POST",
@@ -54,7 +54,6 @@ export default function ProfilePage() {
   if (status === "unauthenticated") {
     redirect("/login");
   }
-
 
   return (
     <section className="mt-8">
@@ -73,13 +72,16 @@ export default function ProfilePage() {
         <div className="flex gap-4 items-center">
           <div>
             <div className="p-4 rounded-lg relative">
-              <Image
-                className="rounded-lg w-full h-full mb-1"
-                src={userImage}
-                width={250}
-                height={250}
-                alt={"avatar"}
-              />
+              {image && (
+                <Image
+                  className="rounded-lg w-full h-full mb-1"
+                  src={image}
+                  width={250}
+                  height={250}
+                  alt={"avatar"}
+                />
+              )}
+
               <label>
                 <input
                   type="file"
