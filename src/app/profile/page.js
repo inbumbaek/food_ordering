@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 export default function ProfilePage() {
   const session = useSession();
   const [userName, setUserName] = useState("");
+  const [image, setIamge] = useState('');
   const [saved, setSaved] = useState(false);
   const [isSaving, setIsSaving] = useState(false);
   const { status } = session;
@@ -14,6 +15,7 @@ export default function ProfilePage() {
   useEffect(() => {
     if (status === "authenticated") {
       setUserName(session.data.user.name);
+      setIamge(session.data.user.image);
     }
   }, [session, status]);
 
@@ -41,7 +43,7 @@ export default function ProfilePage() {
         method: "POST",
         body: data,
       });
-      const json = await response.json();
+      const link = await response.json();
     }
   }
 
@@ -53,7 +55,6 @@ export default function ProfilePage() {
     redirect("/login");
   }
 
-  const userImage = session.data.user.image;
 
   return (
     <section className="mt-8">
