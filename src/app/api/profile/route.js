@@ -11,8 +11,15 @@ export async function PUT(req) {
 
   const user = await User.findOne({ email });
 
-  if ("name" in data) {
-    const result = await User.updateOne({email}, {name:data.name});
+  const update = {};
+  if('name' in data) {
+    update['name'] = data.name;
+  }
+  if ('image' in data) {
+    update.image = data.image;
+  }
+  if (update.keys.length > 0) {
+    await User.updateOne({email}, {update});
   }
 
   return Response.json(true);
