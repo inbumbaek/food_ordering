@@ -72,7 +72,7 @@ export default function ProfilePage() {
         )}
         <div className="flex gap-4 items-center">
           <div>
-            <div className="p-4 rounded-lg relative">
+            <div className="p-4 rounded-lg relative max-w-[120px]">
               {image && (
                 <Image
                   className="rounded-lg w-full h-full mb-1"
