@@ -18,7 +18,7 @@ export async function PUT(req) {
   if ('image' in data) {
     update.image = data.image;
   }
-  if (update.keys.length > 0) {
+  if (Object.keys(update).length > 0) {
     await User.updateOne({email}, {update});
   }
 
