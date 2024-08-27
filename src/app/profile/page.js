@@ -10,6 +10,7 @@ export default function ProfilePage() {
   const [image, setIamge] = useState("");
   const [saved, setSaved] = useState(false);
   const [isSaving, setIsSaving] = useState(false);
+  const [isUploading, setIsUploading] = useState(false);
   const { status } = session;
 
   useEffect(() => {
@@ -39,12 +40,14 @@ export default function ProfilePage() {
     if (files?.length === 1) {
       const data = new FormData();
       data.set("file", files[0]);
+      setIsUploading(true);
       const response = await fetch("/api/upload", {
         method: "POST",
         body: data,
       });
       const link = await response.json();
       setIamge(link);
+      setIsUploading(false);
     }
   }
 
