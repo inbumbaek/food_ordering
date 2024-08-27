@@ -73,6 +73,11 @@ export default function ProfilePage() {
             Saving...
           </h2>
         )}
+        {isUploading && (
+          <h2 className="text-center bg-blue-100 p-4 rounded-lg border-1 border-blue-300">
+          Uploading...
+        </h2>
+        )}
         <div className="flex gap-4 items-center">
           <div>
             <div className="p-4 rounded-lg relative max-w-[120px]">
