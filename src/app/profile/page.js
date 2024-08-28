@@ -64,19 +64,19 @@ export default function ProfilePage() {
       <h1 className="text-center text-primary text-4xl mb-4">Profile</h1>
       <div className="max-w-md mx-auto">
         {saved && (
-          <h2 className="text-center bg-green-100 p-4 rounded-lg border-1 border-green-300">
+          <div className="text-center bg-green-100 p-4 rounded-lg border-1 border-green-300">
             Profile saved!
-          </h2>
+          </div>
         )}
         {isSaving && (
-          <h2 className="text-center bg-blue-100 p-4 rounded-lg border-1 border-blue-300">
+          <div className="text-center bg-blue-100 p-4 rounded-lg border-1 border-blue-300">
             Saving...
-          </h2>
+          </div>
         )}
         {isUploading && (
-          <h2 className="text-center bg-blue-100 p-4 rounded-lg border-1 border-blue-300">
+          <div className="text-center bg-blue-100 p-4 rounded-lg border-1 border-blue-300">
           Uploading...
-        </h2>
+        </div>
         )}
         <div className="flex gap-4 items-center">
           <div>
