@@ -3,6 +3,7 @@ import { useSession } from "next-auth/react";
 import Image from "next/image";
 import { redirect } from "next/navigation";
 import { useEffect, useState } from "react";
+import InfoBox from "../../components/layout/InfoBox";
 
 export default function ProfilePage() {
   const session = useSession();
@@ -69,14 +70,10 @@ export default function ProfilePage() {
           </div>
         )}
         {isSaving && (
-          <div className="text-center bg-blue-100 p-4 rounded-lg border-1 border-blue-300">
-            Saving...
-          </div>
+          <InfoBox>Saving...</InfoBox>
         )}
         {isUploading && (
-          <div className="text-center bg-blue-100 p-4 rounded-lg border-1 border-blue-300">
-          Uploading...
-        </div>
+          <InfoBox>Uploading...</InfoBox>
         )}
         <div className="flex gap-4 items-center">
           <div>
