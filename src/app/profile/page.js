@@ -4,6 +4,7 @@ import Image from "next/image";
 import { redirect } from "next/navigation";
 import { useEffect, useState } from "react";
 import InfoBox from "../../components/layout/InfoBox";
+import SuccessBox from "../../components/layout/SuccessBox";
 
 export default function ProfilePage() {
   const session = useSession();
@@ -65,9 +66,7 @@ export default function ProfilePage() {
       <h1 className="text-center text-primary text-4xl mb-4">Profile</h1>
       <div className="max-w-md mx-auto">
         {saved && (
-          <div className="text-center bg-green-100 p-4 rounded-lg border-1 border-green-300">
-            Profile saved!
-          </div>
+          <SuccessBox>Profile saved!</SuccessBox>
         )}
         {isSaving && (
           <InfoBox>Saving...</InfoBox>
