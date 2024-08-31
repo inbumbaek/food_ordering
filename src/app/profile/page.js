@@ -5,6 +5,7 @@ import { redirect } from "next/navigation";
 import { useEffect, useState } from "react";
 import InfoBox from "../../components/layout/InfoBox";
 import SuccessBox from "../../components/layout/SuccessBox";
+import toast from "react-hot-toast";
 
 export default function ProfilePage() {
   const session = useSession();
@@ -42,11 +43,12 @@ export default function ProfilePage() {
     if (files?.length === 1) {
       const data = new FormData();
       data.set("file", files[0]);
-      
+      toast('Uploading...');
       const response = await fetch("/api/upload", {
         method: "POST",
         body: data,
       });
+      toast('Upload complete!');
       const link = await response.json();
       setIamge(link);
     }
