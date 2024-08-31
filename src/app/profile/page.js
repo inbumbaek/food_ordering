@@ -42,14 +42,13 @@ export default function ProfilePage() {
     if (files?.length === 1) {
       const data = new FormData();
       data.set("file", files[0]);
-      setIsUploading(true);
+      
       const response = await fetch("/api/upload", {
         method: "POST",
         body: data,
       });
       const link = await response.json();
       setIamge(link);
-      setIsUploading(false);
     }
   }
 
@@ -71,9 +70,7 @@ export default function ProfilePage() {
         {isSaving && (
           <InfoBox>Saving...</InfoBox>
         )}
-        {isUploading && (
-          <InfoBox>Uploading...</InfoBox>
-        )}
+        
         <div className="flex gap-4 items-center">
           <div>
             <div className="p-4 rounded-lg relative max-w-[120px]">
