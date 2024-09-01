@@ -26,7 +26,7 @@ export default function ProfilePage() {
   async function handleProfileInfoUpdate(ev) {
     ev.preventDefault();
     setSaved(false);
-    setIsSaving(true);
+    toast('Saving...');
     const response = await fetch("/api/profile", {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
@@ -34,7 +34,7 @@ export default function ProfilePage() {
     });
     setIsSaving(false);
     if (response.ok) {
-      setSaved(true);
+      toast.success('Profile saved!');
     }
   }
 
@@ -71,13 +71,6 @@ export default function ProfilePage() {
     <section className="mt-8">
       <h1 className="text-center text-primary text-4xl mb-4">Profile</h1>
       <div className="max-w-md mx-auto">
-        {saved && (
-          <SuccessBox>Profile saved!</SuccessBox>
-        )}
-        {isSaving && (
-          <InfoBox>Saving...</InfoBox>
-        )}
-        
         <div className="flex gap-4 items-center">
           <div>
             <div className="p-4 rounded-lg relative max-w-[120px]">
