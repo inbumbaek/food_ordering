@@ -48,7 +48,12 @@ export default function ProfilePage() {
         method: "POST",
         body: data,
       });
-      toast.success('Upload complete!');
+      if (response.ok) {
+        toast.success('Upload complete!');
+      } else {
+        toast.error("Upload error!");
+      }
+      
       const link = await response.json();
       setIamge(link);
     }
