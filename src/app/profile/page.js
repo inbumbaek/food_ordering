@@ -48,7 +48,7 @@ export default function ProfilePage() {
         method: "POST",
         body: data,
       });
-      toast('Upload complete!');
+      toast.success('Upload complete!');
       const link = await response.json();
       setIamge(link);
     }
