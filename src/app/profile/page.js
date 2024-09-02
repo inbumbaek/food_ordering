@@ -11,9 +11,6 @@ export default function ProfilePage() {
   const session = useSession();
   const [userName, setUserName] = useState("");
   const [image, setIamge] = useState("");
-  const [saved, setSaved] = useState(false);
-  const [isSaving, setIsSaving] = useState(false);
-  const [isUploading, setIsUploading] = useState(false);
   const { status } = session;
 
   useEffect(() => {
@@ -25,14 +22,12 @@ export default function ProfilePage() {
 
   async function handleProfileInfoUpdate(ev) {
     ev.preventDefault();
-    setSaved(false);
     toast('Saving...');
     const response = await fetch("/api/profile", {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ name: userName,image }),
     });
-    setIsSaving(false);
     if (response.ok) {
       toast.success('Profile saved!');
     }
