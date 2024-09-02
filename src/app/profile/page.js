@@ -22,15 +22,13 @@ export default function ProfilePage() {
 
   async function handleProfileInfoUpdate(ev) {
     ev.preventDefault();
-    toast('Saving...');
-    const response = await fetch("/api/profile", {
-      method: "PUT",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ name: userName,image }),
+    const savingPromise = new Promise(async (resolve, reject) => {
+      const response = await fetch("/api/profile", {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name: userName,image }),
+      });
     });
-    if (response.ok) {
-      toast.success('Profile saved!');
-    }
   }
 
   async function handleFileChange(ev) {
