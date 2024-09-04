@@ -28,6 +28,10 @@ export default function ProfilePage() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ name: userName,image }),
       });
+      if (response.ok) 
+        resolve() 
+      else 
+        reject();
     });
   }
 
