@@ -33,6 +33,12 @@ export default function ProfilePage() {
       else 
         reject();
     });
+
+    await toast.promise(savingPromise, {
+      loading: 'Saving...',
+      success: 'Profile saved!',
+      error: 'Error',
+    })
   }
 
   async function handleFileChange(ev) {
