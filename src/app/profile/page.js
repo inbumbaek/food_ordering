@@ -26,19 +26,17 @@ export default function ProfilePage() {
       const response = await fetch("/api/profile", {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name: userName,image }),
+        body: JSON.stringify({ name: userName, image }),
       });
-      if (response.ok) 
-        resolve() 
-      else 
-        reject();
+      if (response.ok) resolve();
+      else reject();
     });
 
     await toast.promise(savingPromise, {
-      loading: 'Saving...',
-      success: 'Profile saved!',
-      error: 'Error',
-    })
+      loading: "Saving...",
+      success: "Profile saved!",
+      error: "Error",
+    });
   }
 
   async function handleFileChange(ev) {
@@ -46,13 +44,15 @@ export default function ProfilePage() {
     if (files?.length === 1) {
       const data = new FormData();
       data.set("file", files[0]);
-      toast('Uploading...');
-      const response = await fetch("/api/upload", {
-        method: "POST",
-        body: data,
+
+      const uploadPromise = new Promise(async (resolve, reject) => {
+        const response = await fetch("/api/upload", {
+          method: "POST",
+          body: data,
+        });
+        const link = await response.json();
+        setIamge(link);
       });
-      const link = await response.json();
-      setIamge(link);
     }
   }
 
