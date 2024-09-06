@@ -58,6 +58,12 @@ export default function ProfilePage() {
           reject();
         }
       });
+
+      await toast.promise(uploadPromise, {
+        loading: 'Uploading...',
+        success: 'Upload complete',
+        error: 'Upload error',
+      })
     }
   }
 
