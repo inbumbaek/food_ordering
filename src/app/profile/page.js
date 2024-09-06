@@ -50,8 +50,13 @@ export default function ProfilePage() {
           method: "POST",
           body: data,
         });
-        const link = await response.json();
-        setIamge(link);
+        if (response.ok) {
+          const link = await response.json();
+          setIamge(link);
+          resolve();
+        } else {
+          reject();
+        }
       });
     }
   }
