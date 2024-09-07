@@ -53,10 +53,10 @@ export default function ProfilePage() {
           if (response.ok) {
             response.json().then(link => {
               setIamge(link);
+              resolve();
             })
-          } else {
-            reject();
           }
+          throw new Error('Something went wrong');
         });
       });
 
