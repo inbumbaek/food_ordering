@@ -45,18 +45,19 @@ export default function ProfilePage() {
       const data = new FormData();
       data.set("file", files[0]);
 
-      const uploadPromise = new Promise(async (resolve, reject) => {
-        const response = await fetch("/api/upload", {
+      const uploadPromise = new Promise((resolve, reject) => {
+        fetch("/api/upload", {
           method: "POST",
           body: data,
+        }).then(response => {
+          if (response.ok) {
+            response.json().then(link => {
+              setIamge(link);
+            })
+          } else {
+            reject();
+          }
         });
-        if (response.ok) {
-          const link = await response.json();
-          setIamge(link);
-          resolve();
-        } else {
-          reject();
-        }
       });
 
       await toast.promise(uploadPromise, {
