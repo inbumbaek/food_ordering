@@ -114,6 +114,10 @@ export default function ProfilePage() {
               disabled={true}
               value={session.data.user.email}
             />
+            <input type="text" placeholder="Street address"/>
+            <input type="text" placeholder="City"/>
+            <input type="text" placeholder="Poastal code"/>
+            <input type="text" placeholder="Country"/>
             <button type="submit">Save</button>
           </form>
         </div>
