@@ -114,6 +114,7 @@ export default function ProfilePage() {
               disabled={true}
               value={session.data.user.email}
             />
+            <input type="tel" placeholder="Phone number"/>
             <input type="text" placeholder="Street address"/>
             <div className="flex gap-4">
               <input type="text" placeholder="Poastal code"/>
