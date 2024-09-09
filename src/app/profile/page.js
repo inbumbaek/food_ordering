@@ -77,7 +77,7 @@ export default function ProfilePage() {
     <section className="mt-8">
       <h1 className="text-center text-primary text-4xl mb-4">Profile</h1>
       <div className="max-w-md mx-auto">
-        <div className="flex gap-4 items-center">
+        <div className="flex gap-4">
           <div>
             <div className="p-4 rounded-lg relative max-w-[120px]">
               {image && (
@@ -115,8 +115,11 @@ export default function ProfilePage() {
               value={session.data.user.email}
             />
             <input type="text" placeholder="Street address"/>
-            <input type="text" placeholder="City"/>
-            <input type="text" placeholder="Poastal code"/>
+            <div className="flex gap-4">
+              <input type="text" placeholder="Poastal code"/>
+              <input type="text" placeholder="City"/>
+            </div>
+            
             <input type="text" placeholder="Country"/>
             <button type="submit">Save</button>
           </form>
