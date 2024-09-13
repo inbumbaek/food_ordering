@@ -3,14 +3,17 @@ import { useSession } from "next-auth/react";
 import Image from "next/image";
 import { redirect } from "next/navigation";
 import { useEffect, useState } from "react";
-import InfoBox from "../../components/layout/InfoBox";
-import SuccessBox from "../../components/layout/SuccessBox";
 import toast from "react-hot-toast";
 
 export default function ProfilePage() {
   const session = useSession();
   const [userName, setUserName] = useState("");
   const [image, setIamge] = useState("");
+  const [phone, setPhone] = useState("");
+  const [streetAddress, setStreetAddress] = useState("");
+  const [postalCode, setPostalCode] = useState("");
+  const [city, setCity] = useState("");
+  const [country, setCountry] = useState("");
   const { status } = session;
 
   useEffect(() => {
