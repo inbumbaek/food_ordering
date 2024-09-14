@@ -29,7 +29,15 @@ export default function ProfilePage() {
       const response = await fetch("/api/profile", {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name: userName, image }),
+        body: JSON.stringify({ 
+          name: userName, 
+          image,
+          streetAddress,
+          phone,
+          postalCode,
+          city,
+          country,
+        }),
       });
       if (response.ok) resolve();
       else reject();
@@ -48,23 +56,23 @@ export default function ProfilePage() {
       const data = new FormData();
       data.set("file", files[0]);
 
-        const uploadPromise = fetch("/api/upload", {
-          method: "POST",
-          body: data,
-        }).then(response => {
-          if (response.ok) {
-            return response.json().then(link => {
-              setIamge(link);
-            })
-          }
-          throw new Error('Something went wrong');
-        });
+      const uploadPromise = fetch("/api/upload", {
+        method: "POST",
+        body: data,
+      }).then((response) => {
+        if (response.ok) {
+          return response.json().then((link) => {
+            setIamge(link);
+          });
+        }
+        throw new Error("Something went wrong");
+      });
 
       await toast.promise(uploadPromise, {
-        loading: 'Uploading...',
-        success: 'Upload complete',
-        error: 'Upload error',
-      })
+        loading: "Uploading...",
+        success: "Upload complete",
+        error: "Upload error",
+      });
     }
   }
 
@@ -117,14 +125,39 @@ export default function ProfilePage() {
               disabled={true}
               value={session.data.user.email}
             />
-            <input type="tel" placeholder="Phone number" value={phone} onChange={ev => setPhone(ev.target.value)}/>
-            <input type="text" placeholder="Street address" value={streetAddress} onChange={ev => setStreetAddress(ev.target.value)}/>
+            <input
+              type="tel"
+              placeholder="Phone number"
+              value={phone}
+              onChange={(ev) => setPhone(ev.target.value)}
+            />
+            <input
+              type="text"
+              placeholder="Street address"
+              value={streetAddress}
+              onChange={(ev) => setStreetAddress(ev.target.value)}
+            />
             <div className="flex gap-4">
-              <input type="text" placeholder="Poastal code" value={postalCode} onChange={ev => setPostalCode(ev.target.value)}/>
-              <input type="text" placeholder="City" value={city} onChange={ev => setCity(ev.target.value)}/>
+              <input
+                type="text"
+                placeholder="Poastal code"
+                value={postalCode}
+                onChange={(ev) => setPostalCode(ev.target.value)}
+              />
+              <input
+                type="text"
+                placeholder="City"
+                value={city}
+                onChange={(ev) => setCity(ev.target.value)}
+              />
             </div>
-            
-            <input type="text" placeholder="Country" value={country} onChange={ev => setCountry(ev.target.value)}/>
+
+            <input
+              type="text"
+              placeholder="Country"
+              value={country}
+              onChange={(ev) => setCountry(ev.target.value)}
+            />
             <button type="submit">Save</button>
           </form>
         </div>
