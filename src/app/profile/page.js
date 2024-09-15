@@ -20,6 +20,12 @@ export default function ProfilePage() {
     if (status === "authenticated") {
       setUserName(session.data.user.name);
       setIamge(session.data.user.image);
+      fetch('/api/profile').then(response => {
+        response.json().then(data => {
+          
+        })
+      })
+
     }
   }, [session, status]);
 
