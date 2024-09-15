@@ -13,7 +13,7 @@ export async function PUT(req) {
 
   const update = {};
   if('name' in data) {
-    update['name'] = data.name;
+    update.name = data.name;
   }
   if ('image' in data) {
     update.image = data.image;
