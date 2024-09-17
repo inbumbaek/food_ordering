@@ -22,7 +22,11 @@ export default function ProfilePage() {
       setIamge(session.data.user.image);
       fetch('/api/profile').then(response => {
         response.json().then(data => {
-          
+          setPhone(data.phone);
+          setStreetAddress(data.streetAddress);
+          setPostalCode(data.postalCode);
+          setCity(data.city);
+          setCountry(data.country);
         })
       })
 
