@@ -20,16 +20,15 @@ export default function ProfilePage() {
     if (status === "authenticated") {
       setUserName(session.data.user.name);
       setIamge(session.data.user.image);
-      fetch('/api/profile').then(response => {
-        response.json().then(data => {
+      fetch("/api/profile").then((response) => {
+        response.json().then((data) => {
           setPhone(data.phone);
           setStreetAddress(data.streetAddress);
           setPostalCode(data.postalCode);
           setCity(data.city);
           setCountry(data.country);
-        })
-      })
-
+        });
+      });
     }
   }, [session, status]);
 
@@ -39,8 +38,8 @@ export default function ProfilePage() {
       const response = await fetch("/api/profile", {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ 
-          name: userName, 
+        body: JSON.stringify({
+          name: userName,
           image,
           streetAddress,
           phone,
@@ -149,12 +148,14 @@ export default function ProfilePage() {
             />
             <div className="flex gap-4">
               <input
+                style={{'margin':'0'}}
                 type="text"
                 placeholder="Poastal code"
                 value={postalCode}
                 onChange={(ev) => setPostalCode(ev.target.value)}
               />
               <input
+                style={{'margin':'0'}}
                 type="text"
                 placeholder="City"
                 value={city}
