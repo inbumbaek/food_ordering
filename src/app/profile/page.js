@@ -132,11 +132,14 @@ export default function ProfilePage() {
               value={userName}
               onChange={(ev) => setUserName(ev.target.value)}
             />
+            <label>Email</label>
             <input
               type="email"
               disabled={true}
               value={session.data.user.email}
+              placeholder={'email'}
             />
+            <label>Phone</label>
             <input
               type="tel"
               placeholder="Phone number"
