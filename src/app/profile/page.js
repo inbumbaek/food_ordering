@@ -123,6 +123,9 @@ export default function ProfilePage() {
             </div>
           </div>
           <form className="grow" onSubmit={handleProfileInfoUpdate}>
+            <label>
+              First and last name
+            </label>
             <input
               type="text"
               placeholder="First and last name"
