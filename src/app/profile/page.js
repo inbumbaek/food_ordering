@@ -123,9 +123,7 @@ export default function ProfilePage() {
             </div>
           </div>
           <form className="grow" onSubmit={handleProfileInfoUpdate}>
-            <label>
-              First and last name
-            </label>
+            <label>First and last name</label>
             <input
               type="text"
               placeholder="First and last name"
@@ -137,7 +135,7 @@ export default function ProfilePage() {
               type="email"
               disabled={true}
               value={session.data.user.email}
-              placeholder={'email'}
+              placeholder={"email"}
             />
             <label>Phone</label>
             <input
@@ -154,24 +152,28 @@ export default function ProfilePage() {
               onChange={(ev) => setStreetAddress(ev.target.value)}
             />
             <div className="flex gap-2">
-              <label>Postal code</label>
+              <div>
+                <label>Postal code</label>
+                <input
+                  style={{ margin: "0" }}
+                  type="text"
+                  placeholder="Poastal code"
+                  value={postalCode}
+                  onChange={(ev) => setPostalCode(ev.target.value)}
+                />
+              </div>
+              <div>
+                <label>City</label>
               <input
-                style={{'margin':'0'}}
-                type="text"
-                placeholder="Poastal code"
-                value={postalCode}
-                onChange={(ev) => setPostalCode(ev.target.value)}
-              />
-              <label>City</label>
-              <input
-                style={{'margin':'0'}}
+                style={{ margin: "0" }}
                 type="text"
                 placeholder="City"
                 value={city}
                 onChange={(ev) => setCity(ev.target.value)}
               />
+              </div>
             </div>
-
+            <label>Country</label>
             <input
               type="text"
               placeholder="Country"
