@@ -146,13 +146,15 @@ export default function ProfilePage() {
               value={phone}
               onChange={(ev) => setPhone(ev.target.value)}
             />
+            <label>Street address</label>
             <input
               type="text"
               placeholder="Street address"
               value={streetAddress}
               onChange={(ev) => setStreetAddress(ev.target.value)}
             />
-            <div className="flex gap-4">
+            <div className="flex gap-2">
+              <label>Postal code</label>
               <input
                 style={{'margin':'0'}}
                 type="text"
@@ -160,6 +162,7 @@ export default function ProfilePage() {
                 value={postalCode}
                 onChange={(ev) => setPostalCode(ev.target.value)}
               />
+              <label>City</label>
               <input
                 style={{'margin':'0'}}
                 type="text"
