@@ -14,6 +14,7 @@ export default function ProfilePage() {
   const [postalCode, setPostalCode] = useState("");
   const [city, setCity] = useState("");
   const [country, setCountry] = useState("");
+  const [isAdmin, setIsAdmin] = useState(false);
   const { status } = session;
 
   useEffect(() => {
@@ -27,6 +28,7 @@ export default function ProfilePage() {
           setPostalCode(data.postalCode);
           setCity(data.city);
           setCountry(data.country);
+          setIsAdmin(data.admin)
         });
       });
     }
