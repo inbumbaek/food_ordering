@@ -97,7 +97,7 @@ export default function ProfilePage() {
 
   return (
     <section className="mt-8">
-      <div>
+      <div className="flex gap-2 tabs">
         <Link href={'/profile'}>Profile</Link>
         {isAdmin && (
           <>
