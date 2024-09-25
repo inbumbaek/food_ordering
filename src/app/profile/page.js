@@ -97,7 +97,7 @@ export default function ProfilePage() {
 
   return (
     <section className="mt-8">
-      <div className="flex gap-2 tabs">
+      <div className="flex mx-auto gap-2 tabs justify-center">
         <Link className={'active'} href={'/profile'}>Profile</Link>
         {isAdmin && (
           <>
