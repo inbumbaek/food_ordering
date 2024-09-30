@@ -90,7 +90,7 @@ export default function ProfilePage() {
     }
   }
 
-  if (status === "loading") {
+  if (status === "loading" || !profileFetched) {
     return "Loading...";
   }
 
