@@ -12,8 +12,8 @@ export default function UserTabs({ isAdmin }) {
       {isAdmin && (
         <>
           <Link href={"/categories"} className={path === "/profile" ? "active" : ""}>Categories</Link>
-          <Link href={"/menu-items"} className={path === "/profile" ? "active" : ""}>Menu Items</Link>
-          <Link href={"/users"} className={path === "/profile" ? "active" : ""}>Users</Link>
+          <Link href={"/menu-items"} className={path === "/menu-items" ? "active" : ""}>Menu Items</Link>
+          <Link href={"/users"} className={path === "/users" ? "active" : ""}>Users</Link>
         </>
       )}
     </div>
