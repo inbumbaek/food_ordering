@@ -1,3 +1,4 @@
+'use client';
 import UserTabs from "../../components/layout/UserTabs";
 import {useEffect, useState} from 'react';
 
