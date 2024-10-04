@@ -22,7 +22,7 @@ export async function GET() {
   if (!email) {
     return Response.json(null);
   }
+  const user = await User.findOne({email});
   return Response.json(
-    await User.findOne({email})
   )
 }
