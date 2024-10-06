@@ -1,3 +1,5 @@
+'use client'
+
 import { Schema } from "mongoose";
 
 const UserInfoSchema = new Schema(
