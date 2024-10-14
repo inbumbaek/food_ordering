@@ -26,7 +26,7 @@ export async function GET() {
   if (!email) {
     return Response.json(null);
   }
-  const user = await User.findOne({ email });
-  const UserInfo = await userInfo.findOne({ email });
+  const user = await User.findOne({ email }).lean;
+  const UserInfo = await userInfo.findOne({ email }).lean;
   return Response.json({ ...user, ...userInfo });
 }
