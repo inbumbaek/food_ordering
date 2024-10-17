@@ -6,9 +6,11 @@ export default function CategoriesPage() {
   const [isAdmin, setIsAdmin] = useState(false);
   const [adminInfoLoading, setAdminInfoLoading] = useState(false);
   useEffect(() => {
+    setAdminInfoLoading(true);
     fetch('/api/profile').then(response => {
       response.json().then(data => {
         setIsAdmin(data.admin);
+        setAdminInfoLoading(false);
       })
     })
   }, []);
