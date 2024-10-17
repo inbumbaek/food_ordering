@@ -4,6 +4,7 @@ import {useEffect, useState} from 'react';
 
 export default function CategoriesPage() {
   const [isAdmin, setIsAdmin] = useState(false);
+  const [adminInfoLoading, setAdminInfoLoading] = useState(false);
   useEffect(() => {
     fetch('/api/profile').then(response => {
       response.json().then(data => {
