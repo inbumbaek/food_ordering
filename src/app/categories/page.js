@@ -14,6 +14,10 @@ export default function CategoriesPage() {
       })
     })
   }, []);
+
+  if (adminInfoLoading) {
+    return 'Loading info...';
+  }
   
   if (!isAdmin) {
     return 'Not an admin';
