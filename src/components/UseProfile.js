@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-export default function UseProfile() {
+export function UseProfile() {
   const [data, setData] = useState(false);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
@@ -12,4 +12,6 @@ export default function UseProfile() {
       })
     })
   }, []);
+
+  return {loading, data};
 }
