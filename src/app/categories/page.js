@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useProfile } from "../../components/UseProfile";
 
 export default function CategoriesPage() {
+  const [newCategoryName, setNewCategoryName] = useState("");
   const { loading: profileLoading, data: profileData } = useProfile();
 
   if (profileLoading) {
@@ -21,10 +22,16 @@ export default function CategoriesPage() {
         <div className="flex gap-2 items-end">
           <div className="grow">
             <label>New category name</label>
-            <input type="text" />
+            <input
+              type="text"
+              value={newCategoryName}
+              onChange={(ev) => setNewCategoryName(ev.target.value)}
+            />
           </div>
           <div className="pb-2">
-            <button className="border border-primary" type="submit">Create</button>
+            <button className="border border-primary" type="submit">
+              Create
+            </button>
           </div>
         </div>
       </form>
