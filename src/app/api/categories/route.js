@@ -5,3 +5,9 @@ export async function POST(req) {
   const categoryDoc = await Category.create({name});
   return ReportingObserver.json(categoryDoc);
 }
+
+export async function GET(req) {
+  return Response.json(
+    await Category.find()
+  )
+}

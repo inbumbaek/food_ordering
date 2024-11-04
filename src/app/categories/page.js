@@ -7,6 +7,14 @@ export default function CategoriesPage() {
   const [newCategoryName, setNewCategoryName] = useState("");
   const { loading: profileLoading, data: profileData } = useProfile();
 
+  useEffect(() => {
+    fetch('/api/categories').then(res => {
+      res.json().then(categories => {
+        
+      });
+    });
+  }, [])
+
   async function handleNewCategorySubmit(ev) {
     ev.preventDefault();
     const creationPromise = new Promise(async (resolve, reject) => {
@@ -55,6 +63,9 @@ export default function CategoriesPage() {
           </div>
         </div>
       </form>
+      <ul>
+
+      </ul>
     </section>
   );
 }
