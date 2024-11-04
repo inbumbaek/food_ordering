@@ -5,12 +5,13 @@ import { useProfile } from "../../components/UseProfile";
 
 export default function CategoriesPage() {
   const [newCategoryName, setNewCategoryName] = useState("");
+  const [categories, setCategories] = useState([]);
   const { loading: profileLoading, data: profileData } = useProfile();
 
   useEffect(() => {
     fetch('/api/categories').then(res => {
       res.json().then(categories => {
-        
+        setCategories(categories);
       });
     });
   }, [])
