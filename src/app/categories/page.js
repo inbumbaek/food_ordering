@@ -64,9 +64,14 @@ export default function CategoriesPage() {
           </div>
         </div>
       </form>
-      <ul>
-
-      </ul>
+      <div>
+        {categories?.length > 0 && categories.map(c => (
+          <div>
+            <span>edit category:</span>
+            <span>{c.name}</span>
+          </div>
+        ))}
+      </div>
     </section>
   );
 }
