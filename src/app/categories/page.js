@@ -65,10 +65,9 @@ export default function CategoriesPage() {
         </div>
       </form>
       <div>
-        <h2>Edit category:</h2>
+        <h2 className="mt-8 text-sm text-gray-500">Edit category:</h2>
         {categories?.length > 0 && categories.map(c => (
           <div className="bg-gray-200 rounded-xl p-2 px-4 flex gap-1 cursor-pointer">
-            <span className="text-gray-500">edit category:</span>
             <span>{c.name}</span>
           </div>
         ))}
