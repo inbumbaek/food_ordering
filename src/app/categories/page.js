@@ -57,7 +57,9 @@ export default function CategoriesPage() {
       <form className="mt-8" onSubmit={handleNewCategorySubmit}>
         <div className="flex gap-2 items-end">
           <div className="grow">
-            <label>New category name</label>
+            <label>
+              {editecdCategory ? 'Updated category' : 'New category name'}
+            </label>
             <input
               type="text"
               value={newCategoryName}
@@ -66,7 +68,7 @@ export default function CategoriesPage() {
           </div>
           <div className="pb-2">
             <button className="border border-primary" type="submit">
-              Create
+              {editecdCategory ? 'Update' : 'Create'}
             </button>
           </div>
         </div>
