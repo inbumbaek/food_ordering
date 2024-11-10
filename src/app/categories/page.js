@@ -59,6 +59,9 @@ export default function CategoriesPage() {
           <div className="grow">
             <label>
               {editecdCategory ? 'Updated category' : 'New category name'}
+              {editedCategory && (
+                <>: <b>{editedCategory.name}</b></>
+              )}
             </label>
             <input
               type="text"
