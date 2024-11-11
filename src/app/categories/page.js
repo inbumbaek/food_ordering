@@ -21,13 +21,17 @@ export default function CategoriesPage() {
     });
   }
 
-  async function handleNewCategorySubmit(ev) {
+  async function handleCategorySubmit(ev) {
     ev.preventDefault();
     const creationPromise = new Promise(async (resolve, reject) => {
+      const data = { name: categoryName }
+      if (editedCategory) {
+        data._id = editedCategory._id;
+      }
       const response = await fetch("/api/categories", {
-        method: "POST",
+        method: editedCategory ? 'PUT' : "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name: categoryName }),
+        body: JSON.stringify(data),
       });
       setCategoryName('');
       fetchCategories();
