@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { useProfile } from "../../components/UseProfile";
 
 export default function CategoriesPage() {
-  const [newCategoryName, setNewCategoryName] = useState("");
+  const [categoryName, setCategoryName] = useState("");
   const [categories, setCategories] = useState([]);
   const { loading: profileLoading, data: profileData } = useProfile();
   const [editecdCategory, setEditedCategory] = useState(null);
@@ -27,9 +27,9 @@ export default function CategoriesPage() {
       const response = await fetch("/api/categories", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name: newCategoryName }),
+        body: JSON.stringify({ name: categoryName }),
       });
-      setNewCategoryName('');
+      setCategoryName('');
       fetchCategories();
       if (response.ok) 
         resolve() 
@@ -65,8 +65,8 @@ export default function CategoriesPage() {
             </label>
             <input
               type="text"
-              value={newCategoryName}
-              onChange={(ev) => setNewCategoryName(ev.target.value)}
+              value={categoryName}
+              onChange={(ev) => setCategoryName(ev.target.value)}
             />
           </div>
           <div className="pb-2">
@@ -80,7 +80,10 @@ export default function CategoriesPage() {
         <h2 className="mt-8 text-sm text-gray-500">Edit category:</h2>
         {categories?.length > 0 && categories.map(c => (
           <button
-            onClick={() => setEditedCategory(c)}
+            onClick={() => {
+              setEditedCategory(c);
+              setCategoryName(c.name);
+            }}
             className="bg-gray-200 rounded-xl p-2 px-4 flex gap-1 cursor-pointer mb-1">
             <span>{c.name}</span>
           </button>
