@@ -6,6 +6,12 @@ export async function POST(req) {
   return ReportingObserver.json(categoryDoc);
 }
 
+export async function PUT(req) {
+  const {_id, name} = await req.json();
+  await Category.updateOne({_id}, {name});
+  return Response.json(true);
+}
+
 export async function GET(req) {
   return Response.json(
     await Category.find()
