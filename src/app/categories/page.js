@@ -44,7 +44,7 @@ export default function CategoriesPage() {
       loading: editedCategory 
                 ? 'Updating category...' 
                 : 'Creating your new category...',
-      success: 'Category created',
+      success: editedCategory ? 'Category updated' : 'Category created',
       error: 'Error, sorry...',
     });
   }
