@@ -41,7 +41,9 @@ export default function CategoriesPage() {
         reject() ;
     });
     await toast.promise(creationPromise, {
-      loading: 'Creating your new category...',
+      loading: editedCategory 
+                ? 'Updating category...' 
+                : 'Creating your new category...',
       success: 'Category created',
       error: 'Error, sorry...',
     });
