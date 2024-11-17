@@ -28,6 +28,7 @@ export default function MenuItems() {
             <input type="text" />
             <label>Base price</label>
             <input type="text" />
+            <button type="submit">Save</button>
           </div>
         </div>
       </form>
