@@ -17,9 +17,16 @@ export default function MenuItems() {
     <section className="mt-8">
       <UserTabs isAdmin={true} />
       <form className="mt-8 max-w-md mx-auto">
-        <div className="flex items-end gap-2">
+        <div className="flex items-start gap-2">
+          <div>
+            image
+          </div>
           <div className="grow">
-            <label>Menu item name</label>
+            <label>Item name</label>
+            <input type="text" />
+            <label>Description</label>
+            <input type="text" />
+            <label>Base price</label>
             <input type="text" />
           </div>
         </div>
