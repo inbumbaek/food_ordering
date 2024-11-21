@@ -1,9 +1,12 @@
 "use client";
+import EditableImage from "../../components/layout/EditableImage";
 import UserTabs from "../../components/layout/UserTabs";
 import { useProfile } from "../../components/UseProfile";
 
-export default function MenuItems() {
-  const { lading, data } = useProfile();
+export default function MenuItemsPage() {
+
+  const [image, setImage] = useState('');
+  const { loading, data } = useProfile();
 
   if (loading) {
     return "Loading user info...";
@@ -19,7 +22,7 @@ export default function MenuItems() {
       <form className="mt-8 max-w-md mx-auto">
         <div className="flex items-start gap-2">
           <div>
-            image
+            <EditableImage link={image} setLink={setImage} />
           </div>
           <div className="grow">
             <label>Item name</label>
