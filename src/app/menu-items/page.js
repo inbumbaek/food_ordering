@@ -20,8 +20,10 @@ export default function MenuItemsPage() {
     <section className="mt-8">
       <UserTabs isAdmin={true} />
       <form className="mt-8 max-w-md mx-auto">
-        <div className="flex items-start gap-2">
-          <div>
+        <div
+          className="grid items-start gap-4"
+          style={{gridTemplateColumns:'.3fr .7fr'}}>
+        <div>
             <EditableImage link={image} setLink={setImage} />
           </div>
           <div className="grow">
