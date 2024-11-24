@@ -13,6 +13,12 @@ export default function MenuItemsPage() {
 
   async function handleFormSubmit(ev) {
     ev.preventDefault();
+    const data = {image,name,description,basePrice,};
+    const response = await fetch('/api/menu-items', {
+      method: 'POST',
+      body: JSON.stringify(data),
+      headers: { 'Content-Type': 'application/json' },
+      });
   }
 
   if (loading) {
