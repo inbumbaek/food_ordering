@@ -1,10 +1,10 @@
 "use client";
-import EditableImage from "../../components/layout/EditableImage";
 import UserTabs from "../../components/layout/UserTabs";
 import { useProfile } from "../../components/UseProfile";
 
 export default function MenuItemsPage() {
 
+  const {loading, data} = useProfile();
   
   if (loading) {
     return "Loading user info...";
@@ -15,6 +15,8 @@ export default function MenuItemsPage() {
   }
 
   return (
-    <div>menu items</div>
+    <section className="mt-8">
+      <UserTabs isAdmin={true} />
+    </section>
   );
 }
