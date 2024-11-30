@@ -19,8 +19,10 @@ export default function MenuItemsPage() {
       <UserTabs isAdmin={true} />
       <div className="mt-8">
         <Link
+          className="button flex"
           href={"/menu-items/new"}>
-          Create new menu item
+          <span>Create new menu item</span>
+          <Right />
         </Link>
       </div>
     </section>
