@@ -1,3 +1,5 @@
+'use client'
+import Link from "next/link";
 import EditableImage from "../../../components/layout/EditableImage";
 import UserTabs from "../../../components/layout/UserTabs";
 import { useProfile } from "../../../components/UseProfile";
@@ -44,6 +46,11 @@ export default function NewMenuItemPage() {
   return (
     <section className="mt-8">
       <UserTabs isAdmin={true} />
+      <div>
+        <Link href={'/menu-items'} className="button">
+          <span>Show all menu items</span>
+        </Link>
+      </div>
       <form onSubmit={handleFormSubmit} className="mt-8 max-w-md mx-auto">
         <div
           className="grid items-start gap-4"
