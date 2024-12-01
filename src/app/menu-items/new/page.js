@@ -46,9 +46,10 @@ export default function NewMenuItemPage() {
   return (
     <section className="mt-8">
       <UserTabs isAdmin={true} />
-      <div>
+      <div className="max-w-md mx-auto mt-8">
         <Link href={'/menu-items'} className="button">
           <span>Show all menu items</span>
+          <Right />
         </Link>
       </div>
       <form onSubmit={handleFormSubmit} className="mt-8 max-w-md mx-auto">
