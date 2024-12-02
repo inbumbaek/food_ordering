@@ -3,6 +3,7 @@ import Link from "next/link";
 import EditableImage from "../../../components/layout/EditableImage";
 import UserTabs from "../../../components/layout/UserTabs";
 import { useProfile } from "../../../components/UseProfile";
+import Left from "../../../components/icons/Left";
 
 export default function NewMenuItemPage() {
 
@@ -48,8 +49,8 @@ export default function NewMenuItemPage() {
       <UserTabs isAdmin={true} />
       <div className="max-w-md mx-auto mt-8">
         <Link href={'/menu-items'} className="button">
+          <Left />
           <span>Show all menu items</span>
-          <Right />
         </Link>
       </div>
       <form onSubmit={handleFormSubmit} className="mt-8 max-w-md mx-auto">
