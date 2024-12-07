@@ -33,6 +33,8 @@ export default function NewMenuItemPage() {
       success: 'Saved',
       error: 'Error',
     })
+
+    return redirect('/menu-items');
   }
 
 
