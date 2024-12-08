@@ -4,7 +4,17 @@ import UserTabs from "../../components/layout/UserTabs";
 import { useProfile } from "../../components/UseProfile";
 
 export default function MenuItemsPage() {
+
+  const [menuItems, setMenuItems] = useState([]);
   const { loading, data } = useProfile();
+
+  useEffect(() => {
+    fetch('/api/menu-items').then(res => {
+      res.json().then(menuItems => {
+        setMenuItems(menuItems);
+      })
+    })
+  }, [])
 
   if (loading) {
     return "Loading user info...";
