@@ -11,6 +11,7 @@ export default function NewMenuItemPage() {
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
   const [basePrice, setBasePrice] = useState('');
+  const [redirectToItems, setRedirectToItems] = useState(false);
   const { loading, data } = useProfile();
 
   async function handleFormSubmit(ev) {
@@ -34,9 +35,12 @@ export default function NewMenuItemPage() {
       error: 'Error',
     })
 
-    return redirect('/menu-items');
+    setRedirectToItems(true);
   }
 
+  if (redirectToItems) {
+    return redirect('/menu-items');
+  }
 
   if (loading) {
     return "Loading user info...";
