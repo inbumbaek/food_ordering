@@ -35,6 +35,13 @@ export default function MenuItemsPage() {
           <Right />
         </Link>
       </div>
+      <div>
+        {menuItems?.length > 0 && menuItems.map(item => (
+          <div>
+            {item.name}
+          </div>
+        ))}
+      </div>
     </section>
   );
 }
