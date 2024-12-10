@@ -36,11 +36,11 @@ export default function MenuItemsPage() {
         </Link>
       </div>
       <div>
-        <h2 className="text-sm text-gray-500 mt-4">Edit menu item:</h2>
+        <h2 className="text-sm text-gray-500 mt-8">Edit menu item:</h2>
         {menuItems?.length > 0 && menuItems.map(item => (
-          <button className="mb-1">
+          <Link href={'/menu-items/edit/'+item._id} className="button mb-1">
             {item.name}
-          </button>
+          </Link>
         ))}
       </div>
     </section>
