@@ -39,6 +39,9 @@ export default function MenuItemsPage() {
         <h2 className="text-sm text-gray-500 mt-8">Edit menu item:</h2>
         {menuItems?.length > 0 && menuItems.map(item => (
           <Link href={'/menu-items/edit/'+item._id} className="button mb-1">
+            <div className="relative">
+              <Image src={item.image} alt={''} width={100} height={100} />
+            </div>
             {item.name}
           </Link>
         ))}
