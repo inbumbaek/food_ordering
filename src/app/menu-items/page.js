@@ -39,10 +39,10 @@ export default function MenuItemsPage() {
             menuItems.map((item) => (
               <Link
                 href={"/menu-items/edit/" + item._id}
-                className="button mb-1 flex-col"
+                className="bg-gray-200 rounded-lg p-4"
               >
                 <div className="relative">
-                  <Image src={item.image} alt={""} width={100} height={100} />
+                  <Image className="rounded-md" src={item.image} alt={""} width={200} height={200} />
                 </div>
                 <div className="text-center">{item.name}</div>
               </Link>
