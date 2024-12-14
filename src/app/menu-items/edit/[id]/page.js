@@ -1,3 +1,7 @@
+'use client'
+
+import {useEffect, useState} from "react";
+
 export default function EditMenuItemPage() {
   
   const [image, setImage] = useState('');
@@ -6,6 +10,15 @@ export default function EditMenuItemPage() {
   const [basePrice, setBasePrice] = useState('');
   const [redirectToItems, setRedirectToItems] = useState(false);
   const { loading, data } = useProfile();
+
+  useEffect(() => {
+    fetch('/api/menu-items').then(res => {
+      res.json().then(items => {
+        const item = items.find(i => i._id === id);
+        setMenuItem(item);
+      });
+    })
+  }, []);
 
   async function handleFormSubmit(ev) {
     ev.preventDefault();
