@@ -1,9 +1,11 @@
 'use client'
 
+import { useParams } from "next/navigation";
 import {useEffect, useState} from "react";
 
 export default function EditMenuItemPage() {
   
+  const {id} = useParams();
   const [image, setImage] = useState('');
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
@@ -22,7 +24,7 @@ export default function EditMenuItemPage() {
 
   async function handleFormSubmit(ev) {
     ev.preventDefault();
-    const data = {image,name,description,basePrice,};
+    const data = {image,name,description,basePrice,_id:id};
     const savingPromise = new Promise(async (resolve, reject) => {
       const response = await fetch('/api/menu-items', {
       method: 'POST',
