@@ -2,14 +2,11 @@
 
 import { useParams } from "next/navigation";
 import {useEffect, useState} from "react";
+import toast from "react-hot-toast";
 
 export default function EditMenuItemPage() {
   
   const {id} = useParams();
-  const [image, setImage] = useState('');
-  const [name, setName] = useState('');
-  const [description, setDescription] = useState('');
-  const [basePrice, setBasePrice] = useState('');
   const [redirectToItems, setRedirectToItems] = useState(false);
   const { loading, data } = useProfile();
 
