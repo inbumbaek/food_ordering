@@ -2,7 +2,7 @@ import EditableImage from "./EditableImage";
 import { useState } from "react";
 
 export default function MenuItemForm({onSubmit,menuItem}) {
-  const [image, setImage] = useState(menuItem.image || '');
+  const [image, setImage] = useState(menuItem?.image || '');
   const [name, setName] = useState(menuItem.name || '');
   const [description, setDescription] = useState(menuItem.description || '');
   const [basePrice, setBasePrice] = useState(menuItem.basePrice || '');

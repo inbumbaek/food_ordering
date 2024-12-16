@@ -1,5 +1,6 @@
 'use client'
 
+import MenuItemForm from "@/components/layout/MenuItemForm";
 import { useParams } from "next/navigation";
 import {useEffect, useState} from "react";
 import toast from "react-hot-toast";
@@ -7,6 +8,8 @@ import toast from "react-hot-toast";
 export default function EditMenuItemPage() {
   
   const {id} = useParams();
+
+  const [menuItem, setMenuItem] = useState(null);
   const [redirectToItems, setRedirectToItems] = useState(false);
   const { loading, data } = useProfile();
 
@@ -64,6 +67,7 @@ export default function EditMenuItemPage() {
           <span>Show all menu items</span>
         </Link>
       </div>
+      <MenuItemForm menuItem={menuItem} onSubmit={handleFormSubmit}/>
     </section>
   );
 }
