@@ -7,10 +7,6 @@ import Left from "../../../components/icons/Left";
 
 export default function NewMenuItemPage() {
 
-  const [image, setImage] = useState('');
-  const [name, setName] = useState('');
-  const [description, setDescription] = useState('');
-  const [basePrice, setBasePrice] = useState('');
   const [redirectToItems, setRedirectToItems] = useState(false);
   const { loading, data } = useProfile();
 
