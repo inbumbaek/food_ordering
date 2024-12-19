@@ -22,9 +22,8 @@ export default function EditMenuItemPage() {
     })
   }, []);
 
-  async function handleFormSubmit(ev) {
+  async function handleFormSubmit(ev, data) {
     ev.preventDefault();
-    const data = {image,name,description,basePrice,_id:id};
     const savingPromise = new Promise(async (resolve, reject) => {
       const response = await fetch('/api/menu-items', {
       method: 'POST',
