@@ -4,6 +4,7 @@ import EditableImage from "../../../components/layout/EditableImage";
 import UserTabs from "../../../components/layout/UserTabs";
 import { useProfile } from "../../../components/UseProfile";
 import Left from "../../../components/icons/Left";
+import MenuItemForm from "@/components/layout/MenuItemForm";
 
 export default function NewMenuItemPage() {
 
