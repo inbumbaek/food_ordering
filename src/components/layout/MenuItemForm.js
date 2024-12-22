@@ -14,6 +14,15 @@ export default function MenuItemForm({ onSubmit, menuItem }) {
     });
   }
 
+  function editSize(ev, index, prop) {
+    const newValue = ev.target.value;
+    setSizes(prevSizes => {
+      const newSized = [...prevSizes];
+      newSizes[index][prop] = newValue;
+      return newSizes;
+    })
+  }
+
   return (
     <form
       onSubmit={(ev) => onSubmit(ev, { image, name, description, basePrice })}
