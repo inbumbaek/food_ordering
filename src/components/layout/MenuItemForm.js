@@ -48,7 +48,7 @@ export default function MenuItemForm({ onSubmit, menuItem }) {
           <div className="bg-gray-200 p-2 rounded-md mb-2">
             <label>Sizes</label>
             {sizes?.length > 0 &&
-              sizes.map((size) => (
+              sizes.map((size,index) => (
                 <div className="flex gap-2">
                   <div>
                     <label>Size name</label>
@@ -56,6 +56,7 @@ export default function MenuItemForm({ onSubmit, menuItem }) {
                       type="text"
                       placeholder="Size name"
                       value={size.name}
+                      onChange={ev => editSize(ev, index, 'name')}
                     />
                   </div>
                   <div>
@@ -64,6 +65,7 @@ export default function MenuItemForm({ onSubmit, menuItem }) {
                       type="text"
                       placeholder="Extra price"
                       value={size.price}
+                      onChange={ev => editSize(ev, index, 'price')}
                     />
                   </div>
                 </div>
