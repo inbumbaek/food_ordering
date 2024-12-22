@@ -48,18 +48,24 @@ export default function MenuItemForm({ onSubmit, menuItem }) {
           <div className="bg-gray-200 p-2 rounded-md mb-2">
             <label>Sizes</label>
             {sizes?.length > 0 &&
-              sizes.map(size => (
-                <div>
-                  <input
-                    type="text"
-                    placeholder="Size name"
-                    value={size.name}
-                  />
-                  <input
-                    type="number"
-                    placeholder="Extra price"
-                    value={size.price}
-                  />
+              sizes.map((size) => (
+                <div className="flex gap-2">
+                  <div>
+                    <label>Size name</label>
+                    <input
+                      type="text"
+                      placeholder="Size name"
+                      value={size.name}
+                    />
+                  </div>
+                  <div>
+                    <label>Extra price</label>
+                    <input
+                      type="text"
+                      placeholder="Extra price"
+                      value={size.price}
+                    />
+                  </div>
                 </div>
               ))}
             <button type="button" onClick={addSize} className="bg-white">
