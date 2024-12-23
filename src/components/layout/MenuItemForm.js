@@ -23,6 +23,10 @@ export default function MenuItemForm({ onSubmit, menuItem }) {
     })
   }
 
+  function removeSize(index) {
+    setSizes(prev => prev.filter((v,i) => i === index))
+  }
+
   return (
     <form
       onSubmit={(ev) => onSubmit(ev, { image, name, description, basePrice })}
@@ -79,7 +83,7 @@ export default function MenuItemForm({ onSubmit, menuItem }) {
                   </div>
                   <div>
                     <button type="button"
-                    onClick={() => setSizes(prev => prev.filter((v,i) => i === index))}
+                    onClick={() => removeSize(index)}
                     className="bg-white mb-2">x</button>
                   </div>
                 </div>
