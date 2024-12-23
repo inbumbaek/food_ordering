@@ -58,7 +58,7 @@ export default function MenuItemForm({ onSubmit, menuItem }) {
             <label>Sizes</label>
             {sizes?.length > 0 &&
               sizes.map((size,index) => (
-                <div className="flex gap-2">
+                <div className="flex items-end gap-2">
                   <div>
                     <label>Size name</label>
                     <input
@@ -76,6 +76,11 @@ export default function MenuItemForm({ onSubmit, menuItem }) {
                       value={size.price}
                       onChange={ev => editSize(ev, index, 'price')}
                     />
+                  </div>
+                  <div>
+                    <button type="button"
+                    onClick={() => setSizes(prev => prev.filter((v,i) => i === index))}
+                    className="bg-white mb-2">x</button>
                   </div>
                 </div>
               ))}
