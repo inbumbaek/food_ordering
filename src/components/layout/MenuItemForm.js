@@ -23,8 +23,8 @@ export default function MenuItemForm({ onSubmit, menuItem }) {
     })
   }
 
-  function removeSize(index) {
-    setSizes(prev => prev.filter((v,i) => i === index))
+  function removeSize(indexToRemove) {
+    setSizes(prev => prev.filter((v,index) => index !== index))
   }
 
   return (
