@@ -1,3 +1,4 @@
+import Trash from "../icons/Trash";
 import EditableImage from "./EditableImage";
 import { useState } from "react";
 
@@ -84,7 +85,9 @@ export default function MenuItemForm({ onSubmit, menuItem }) {
                   <div>
                     <button type="button"
                     onClick={() => removeSize(index)}
-                    className="bg-white mb-2">x</button>
+                    className="bg-white mb-2 px-2">
+                      <Trash />
+                    </button>
                   </div>
                 </div>
               ))}
