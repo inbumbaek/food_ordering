@@ -1,3 +1,4 @@
+import Plus from "../icons/Plus";
 import Trash from "../icons/Trash";
 import EditableImage from "./EditableImage";
 import { useState } from "react";
@@ -17,15 +18,15 @@ export default function MenuItemForm({ onSubmit, menuItem }) {
 
   function editSize(ev, index, prop) {
     const newValue = ev.target.value;
-    setSizes(prevSizes => {
+    setSizes((prevSizes) => {
       const newSized = [...prevSizes];
       newSizes[index][prop] = newValue;
       return newSizes;
-    })
+    });
   }
 
   function removeSize(indexToRemove) {
-    setSizes(prev => prev.filter((v,index) => index !== index))
+    setSizes((prev) => prev.filter((v, index) => index !== index));
   }
 
   return (
@@ -62,7 +63,7 @@ export default function MenuItemForm({ onSubmit, menuItem }) {
           <div className="bg-gray-200 p-2 rounded-md mb-2">
             <label>Sizes</label>
             {sizes?.length > 0 &&
-              sizes.map((size,index) => (
+              sizes.map((size, index) => (
                 <div className="flex items-end gap-2">
                   <div>
                     <label>Size name</label>
@@ -70,7 +71,7 @@ export default function MenuItemForm({ onSubmit, menuItem }) {
                       type="text"
                       placeholder="Size name"
                       value={size.name}
-                      onChange={ev => editSize(ev, index, 'name')}
+                      onChange={(ev) => editSize(ev, index, "name")}
                     />
                   </div>
                   <div>
@@ -79,20 +80,23 @@ export default function MenuItemForm({ onSubmit, menuItem }) {
                       type="text"
                       placeholder="Extra price"
                       value={size.price}
-                      onChange={ev => editSize(ev, index, 'price')}
+                      onChange={(ev) => editSize(ev, index, "price")}
                     />
                   </div>
                   <div>
-                    <button type="button"
-                    onClick={() => removeSize(index)}
-                    className="bg-white mb-2 px-2">
+                    <button
+                      type="button"
+                      onClick={() => removeSize(index)}
+                      className="bg-white mb-2 px-2"
+                    >
                       <Trash />
                     </button>
                   </div>
                 </div>
               ))}
             <button type="button" onClick={addSize} className="bg-white">
-              Add item size
+              <Plus />
+              <span>Add item size</span>
             </button>
           </div>
           <button type="submit">Save</button>
