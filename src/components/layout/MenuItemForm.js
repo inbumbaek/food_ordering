@@ -94,8 +94,8 @@ export default function MenuItemForm({ onSubmit, menuItem }) {
                   </div>
                 </div>
               ))}
-            <button type="button" onClick={addSize} className="bg-white">
-              <Plus />
+            <button type="button" onClick={addSize} className="bg-white items-center">
+              <Plus className="w-4 h-4" />
               <span>Add item size</span>
             </button>
           </div>
