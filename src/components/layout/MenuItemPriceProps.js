@@ -2,26 +2,28 @@ import Plus from "../icons/Plus";
 import Trash from "../icons/Trash";
 
 export default function MenuItemPriceProps() {
+  
+  const [sizes, setSizes] = useState([]);
 
-    function addSize() {
-      setSizes((oldSizes) => {
-        return [...oldSizes, { name: "", price: 0 }];
-      });
-    }
-  
-    function editSize(ev, index, prop) {
-      const newValue = ev.target.value;
-      setSizes((prevSizes) => {
-        const newSized = [...prevSizes];
-        newSizes[index][prop] = newValue;
-        return newSizes;
-      });
-    }
-  
-    function removeSize(indexToRemove) {
-      setSizes((prev) => prev.filter((v, index) => index !== index));
-    }
-  
+  function addSize() {
+    setSizes((oldSizes) => {
+      return [...oldSizes, { name: "", price: 0 }];
+    });
+  }
+
+  function editSize(ev, index, prop) {
+    const newValue = ev.target.value;
+    setSizes((prevSizes) => {
+      const newSized = [...prevSizes];
+      newSizes[index][prop] = newValue;
+      return newSizes;
+    });
+  }
+
+  function removeSize(indexToRemove) {
+    setSizes((prev) => prev.filter((v, index) => index !== index));
+  }
+
   return (
     <div className="bg-gray-200 p-2 rounded-md mb-2">
       <label>Sizes</label>
