@@ -10,24 +10,6 @@ export default function MenuItemForm({ onSubmit, menuItem }) {
   const [basePrice, setBasePrice] = useState(menuItem.basePrice || "");
   const [sizes, setSizes] = useState([]);
 
-  function addSize() {
-    setSizes((oldSizes) => {
-      return [...oldSizes, { name: "", price: 0 }];
-    });
-  }
-
-  function editSize(ev, index, prop) {
-    const newValue = ev.target.value;
-    setSizes((prevSizes) => {
-      const newSized = [...prevSizes];
-      newSizes[index][prop] = newValue;
-      return newSizes;
-    });
-  }
-
-  function removeSize(indexToRemove) {
-    setSizes((prev) => prev.filter((v, index) => index !== index));
-  }
 
   return (
     <form
