@@ -11,7 +11,6 @@ export default function MenuItemForm({ onSubmit, menuItem }) {
   const [basePrice, setBasePrice] = useState(menuItem.basePrice || "");
   const [sizes, setSizes] = useState([]);
 
-
   return (
     <form
       onSubmit={(ev) => onSubmit(ev, { image, name, description, basePrice })}
@@ -43,7 +42,12 @@ export default function MenuItemForm({ onSubmit, menuItem }) {
             value={basePrice}
             onChange={(ev) => setBasePrice(ev.target.value)}
           />
-          <MenuItemPriceProps props={sizes} setProps={setSizes}/>
+          <MenuItemPriceProps
+            name={"Sizes"}
+            addLabel={"Add item size"}
+            props={sizes}
+            setProps={setSizes}
+          />
           <button type="submit">Save</button>
         </div>
       </div>

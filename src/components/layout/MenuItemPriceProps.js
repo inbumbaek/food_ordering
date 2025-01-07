@@ -1,7 +1,7 @@
 import Plus from "../icons/Plus";
 import Trash from "../icons/Trash";
 
-export default function MenuItemPriceProps({props, setProps}) {
+export default function MenuItemPriceProps({name, addLabel, props, setProps}) {
   
   function addProp() {
     setProps((oldProps) => {
@@ -24,7 +24,7 @@ export default function MenuItemPriceProps({props, setProps}) {
 
   return (
     <div className="bg-gray-200 p-2 rounded-md mb-2">
-      <label>Sizes</label>
+      <label>{name}</label>
       {props?.length > 0 &&
         props.map((size, index) => (
           <div className="flex items-end gap-2">
@@ -59,7 +59,7 @@ export default function MenuItemPriceProps({props, setProps}) {
         ))}
       <button type="button" onClick={addProp} className="bg-white items-center">
         <Plus className="w-4 h-4" />
-        <span>Add item size</span>
+        <span>{addLabel}</span>
       </button>
     </div>
   );
