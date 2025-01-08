@@ -29,7 +29,7 @@ export default function MenuItemPriceProps({name, addLabel, props, setProps}) {
         props.map((size, index) => (
           <div className="flex items-end gap-2">
             <div>
-              <label>Size name</label>
+              <label>Name</label>
               <input
                 type="text"
                 placeholder="Size name"
