@@ -14,7 +14,7 @@ export default function MenuItemForm({ onSubmit, menuItem }) {
 
   return (
     <form
-      onSubmit={(ev) => onSubmit(ev, { image, name, description, basePrice })}
+      onSubmit={(ev) => onSubmit(ev, { image, name, description, basePrice, sizes, extraIngredientPrices })}
       className="mt-8 max-w-md mx-auto"
     >
       <div
