@@ -1,8 +1,12 @@
 import Plus from "../icons/Plus";
 import Trash from "../icons/Trash";
 
-export default function MenuItemPriceProps({name, addLabel, props, setProps}) {
-  
+export default function MenuItemPriceProps({
+  name,
+  addLabel,
+  props,
+  setProps,
+}) {
   function addProp() {
     setProps((oldProps) => {
       return [...oldProps, { name: "", price: 0 }];
@@ -24,7 +28,14 @@ export default function MenuItemPriceProps({name, addLabel, props, setProps}) {
 
   return (
     <div className="bg-gray-200 p-2 rounded-md mb-2">
-      <label>{name}</label>
+      <div className="flex gap-1">
+        <div>
+          <button className="inline-flex p-1" type="button">
+            Toggle
+          </button>
+        </div>
+        <h3 className="grow text-gray-700">{name}</h3>
+      </div>
       {props?.length > 0 &&
         props.map((size, index) => (
           <div className="flex items-end gap-2">
