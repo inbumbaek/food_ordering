@@ -8,6 +8,7 @@ export default function MenuItemPriceProps({
   props,
   setProps,
 }) {
+  const [isOpen, setIsOpen] = useState(false);
 
   function addProp() {
     setProps((oldProps) => {
@@ -31,7 +32,8 @@ export default function MenuItemPriceProps({
   return (
     <div className="bg-gray-200 p-2 rounded-md mb-2">
       <button className="inline-flex p-1 border-0 justify-start" type="button">
-        <ChevronDown />
+        {isOpen && <CheveronUp />}
+        {!isOpen && <ChevronDown />}
         <span>{name}</span>
       </button>
       {props?.length > 0 &&
