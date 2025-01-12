@@ -1,4 +1,5 @@
 import ChevronDown from "../icons/ChevronDown";
+import ChevronUp from "../icons/ChevronUp";
 import Plus from "../icons/Plus";
 import Trash from "../icons/Trash";
 
@@ -32,7 +33,7 @@ export default function MenuItemPriceProps({
   return (
     <div className="bg-gray-200 p-2 rounded-md mb-2">
       <button className="inline-flex p-1 border-0 justify-start" type="button">
-        {isOpen && <CheveronUp />}
+        {isOpen && <ChevronUp />}
         {!isOpen && <ChevronDown />}
         <span>{name}</span>
       </button>
