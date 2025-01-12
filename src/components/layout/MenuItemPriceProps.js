@@ -1,3 +1,4 @@
+import ChevronDown from "../icons/ChevronDown";
 import Plus from "../icons/Plus";
 import Trash from "../icons/Trash";
 
@@ -28,10 +29,10 @@ export default function MenuItemPriceProps({
 
   return (
     <div className="bg-gray-200 p-2 rounded-md mb-2">
-      <div className="flex gap-1">
+      <div className="flex items-center gap-1">
         <div>
-          <button className="inline-flex p-1" type="button">
-            Toggle
+          <button className="inline-flex p-1 bg-white" type="button">
+            <ChevronDown />
           </button>
         </div>
         <h3 className="grow text-gray-700">{name}</h3>
