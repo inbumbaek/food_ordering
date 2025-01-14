@@ -37,42 +37,48 @@ export default function MenuItemPriceProps({
         {!isOpen && <ChevronDown />}
         <span>{name}</span>
       </button>
-      {props?.length > 0 &&
-        props.map((size, index) => (
-          <div className="flex items-end gap-2">
-            <div>
-              <label>Name</label>
-              <input
-                type="text"
-                placeholder="Size name"
-                value={size.name}
-                onChange={(ev) => editProp(ev, index, "name")}
-              />
+      <div>
+        {props?.length > 0 &&
+          props.map((size, index) => (
+            <div className="flex items-end gap-2">
+              <div>
+                <label>Name</label>
+                <input
+                  type="text"
+                  placeholder="Size name"
+                  value={size.name}
+                  onChange={(ev) => editProp(ev, index, "name")}
+                />
+              </div>
+              <div>
+                <label>Extra price</label>
+                <input
+                  type="text"
+                  placeholder="Extra price"
+                  value={size.price}
+                  onChange={(ev) => editProp(ev, index, "price")}
+                />
+              </div>
+              <div>
+                <button
+                  type="button"
+                  onClick={() => removeProp(index)}
+                  className="bg-white mb-2 px-2"
+                >
+                  <Trash />
+                </button>
+              </div>
             </div>
-            <div>
-              <label>Extra price</label>
-              <input
-                type="text"
-                placeholder="Extra price"
-                value={size.price}
-                onChange={(ev) => editProp(ev, index, "price")}
-              />
-            </div>
-            <div>
-              <button
-                type="button"
-                onClick={() => removeProp(index)}
-                className="bg-white mb-2 px-2"
-              >
-                <Trash />
-              </button>
-            </div>
-          </div>
-        ))}
-      <button type="button" onClick={addProp} className="bg-white items-center">
-        <Plus className="w-4 h-4" />
-        <span>{addLabel}</span>
-      </button>
+          ))}
+        <button
+          type="button"
+          onClick={addProp}
+          className="bg-white items-center"
+        >
+          <Plus className="w-4 h-4" />
+          <span>{addLabel}</span>
+        </button>
+      </div>
     </div>
   );
 }
