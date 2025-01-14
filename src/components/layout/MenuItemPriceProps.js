@@ -37,7 +37,7 @@ export default function MenuItemPriceProps({
         {!isOpen && <ChevronDown />}
         <span>{name}</span>
       </button>
-      <div>
+      <div className={isOpen ? 'block' : 'hidden'}>
         {props?.length > 0 &&
           props.map((size, index) => (
             <div className="flex items-end gap-2">
