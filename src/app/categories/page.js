@@ -84,16 +84,16 @@ export default function CategoriesPage() {
         </div>
       </form>
       <div>
-        <h2 className="mt-8 text-sm text-gray-500">Edit category:</h2>
+        <h2 className="mt-8 text-sm text-gray-500">Existing categories:</h2>
         {categories?.length > 0 && categories.map(c => (
-          <button
+          <div
             onClick={() => {
               setEditedCategory(c);
               setCategoryName(c.name);
             }}
-            className="rounded-xl p-2 px-4 flex gap-1 cursor-pointer mb-1">
+            className="bg-gray-100 rounded-xl p-2 px-4 flex gap-1 cursor-pointer mb-1">
             <span>{c.name}</span>
-          </button>
+          </div>
         ))}
       </div>
     </section>
