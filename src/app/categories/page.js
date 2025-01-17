@@ -89,13 +89,15 @@ export default function CategoriesPage() {
           categories.map((c) => (
             <div className="bg-gray-100 rounded-xl p-2 px-4 flex gap-1 mb-1">
               <span
-              className="hover:underline cursor-pointer"
+                className="hover:underline cursor-pointer"
                 onClick={() => {
                   setEditedCategory(c);
                   setCategoryName(c.name);
                 }}
               >
                 {c.name}
+                <button type="button">Edit</button>
+                <button type="button">Delete</button>
               </span>
             </div>
           ))}
