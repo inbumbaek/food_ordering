@@ -10,12 +10,12 @@ export default function CategoriesPage() {
   const [editecdCategory, setEditedCategory] = useState(null);
 
   useEffect(() => {
-    fetchCategories()
-  }, [])
+    fetchCategories();
+  }, []);
 
   function fetchCategories() {
-    fetch('/api/categories').then(res => {
-      res.json().then(categories => {
+    fetch("/api/categories").then((res) => {
+      res.json().then((categories) => {
         setCategories(categories);
       });
     });
@@ -24,29 +24,27 @@ export default function CategoriesPage() {
   async function handleCategorySubmit(ev) {
     ev.preventDefault();
     const creationPromise = new Promise(async (resolve, reject) => {
-      const data = { name: categoryName }
+      const data = { name: categoryName };
       if (editedCategory) {
         data._id = editedCategory._id;
       }
       const response = await fetch("/api/categories", {
-        method: editedCategory ? 'PUT' : "POST",
+        method: editedCategory ? "PUT" : "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
       });
-      setCategoryName('');
+      setCategoryName("");
       fetchCategories();
       setEditedCategory(null);
-      if (response.ok) 
-        resolve() 
-      else
-        reject() ;
+      if (response.ok) resolve();
+      else reject();
     });
     await toast.promise(creationPromise, {
-      loading: editedCategory 
-                ? 'Updating category...' 
-                : 'Creating your new category...',
-      success: editedCategory ? 'Category updated' : 'Category created',
-      error: 'Error, sorry...',
+      loading: editedCategory
+        ? "Updating category..."
+        : "Creating your new category...",
+      success: editedCategory ? "Category updated" : "Category created",
+      error: "Error, sorry...",
     });
   }
 
@@ -65,9 +63,11 @@ export default function CategoriesPage() {
         <div className="flex gap-2 items-end">
           <div className="grow">
             <label>
-              {editecdCategory ? 'Updated category' : 'New category name'}
+              {editecdCategory ? "Updated category" : "New category name"}
               {editedCategory && (
-                <>: <b>{editedCategory.name}</b></>
+                <>
+                  : <b>{editedCategory.name}</b>
+                </>
               )}
             </label>
             <input
@@ -78,23 +78,27 @@ export default function CategoriesPage() {
           </div>
           <div className="pb-2">
             <button className="border border-primary" type="submit">
-              {editecdCategory ? 'Update' : 'Create'}
+              {editecdCategory ? "Update" : "Create"}
             </button>
           </div>
         </div>
       </form>
       <div>
         <h2 className="mt-8 text-sm text-gray-500">Existing categories:</h2>
-        {categories?.length > 0 && categories.map(c => (
-          <div
-            onClick={() => {
-              setEditedCategory(c);
-              setCategoryName(c.name);
-            }}
-            className="bg-gray-100 rounded-xl p-2 px-4 flex gap-1 cursor-pointer mb-1">
-            <span>{c.name}</span>
-          </div>
-        ))}
+        {categories?.length > 0 &&
+          categories.map((c) => (
+            <div className="bg-gray-100 rounded-xl p-2 px-4 flex gap-1 mb-1">
+              <span
+              className="hover:underline cursor-pointer"
+                onClick={() => {
+                  setEditedCategory(c);
+                  setCategoryName(c.name);
+                }}
+              >
+                {c.name}
+              </span>
+            </div>
+          ))}
       </div>
     </section>
   );
