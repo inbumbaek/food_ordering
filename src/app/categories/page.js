@@ -48,6 +48,10 @@ export default function CategoriesPage() {
     });
   }
 
+  function handleDeleteClick(_id) {
+
+  }
+
   if (profileLoading) {
     return "Loading user info...";
   }
@@ -101,7 +105,9 @@ export default function CategoriesPage() {
                 >
                   Edit
                 </button>
-                <button type="button">Delete</button>
+                <button 
+                onClick={() => handleDeleteClick(c._id)}
+                type="button">Delete</button>
               </div>
             </div>
           ))}
