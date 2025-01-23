@@ -60,6 +60,11 @@ export default function CategoriesPage() {
   }
     });
     
+    await toast.promise(promise, {
+      loading: 'Deleting...',
+      success: 'Deleted',
+      error: 'Error',
+    });
 
   if (profileLoading) {
     return "Loading user info...";
