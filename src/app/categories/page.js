@@ -48,9 +48,18 @@ export default function CategoriesPage() {
     });
   }
 
-  function handleDeleteClick(_id) {
-
+  async function handleDeleteClick(_id) {
+    const promise = new Promise(async (resolve, reject) => {
+      const response = await fetch('/api/categories?_id='+_id, {
+      method: 'DELETE',
+    });
+    if (response.ok) {
+      resolve();
+  } else {
+    reject();
   }
+    });
+    
 
   if (profileLoading) {
     return "Loading user info...";
