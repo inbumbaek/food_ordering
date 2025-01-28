@@ -21,3 +21,9 @@ export async function GET(req) {
     await Category.find()
   )
 }
+
+export async function DELETE(req) {
+  mongoose.connect(process.env.MONGO_URL);
+  const url = new URL(req.url);
+  return Response.json(true);
+}

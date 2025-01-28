@@ -59,12 +59,17 @@ export default function CategoriesPage() {
     reject();
   }
     });
+
+    
     
     await toast.promise(promise, {
       loading: 'Deleting...',
       success: 'Deleted',
       error: 'Error',
     });
+
+    fetchCategories();
+  }
 
   if (profileLoading) {
     return "Loading user info...";
