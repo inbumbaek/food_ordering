@@ -50,22 +50,20 @@ export default function CategoriesPage() {
 
   async function handleDeleteClick(_id) {
     const promise = new Promise(async (resolve, reject) => {
-      const response = await fetch('/api/categories?_id='+_id, {
-      method: 'DELETE',
-    });
-    if (response.ok) {
-      resolve();
-  } else {
-    reject();
-  }
+      const response = await fetch("/api/categories?_id=" + _id, {
+        method: "DELETE",
+      });
+      if (response.ok) {
+        resolve();
+      } else {
+        reject();
+      }
     });
 
-    
-    
     await toast.promise(promise, {
-      loading: 'Deleting...',
-      success: 'Deleted',
-      error: 'Error',
+      loading: "Deleting...",
+      success: "Deleted",
+      error: "Error",
     });
 
     fetchCategories();
@@ -103,7 +101,12 @@ export default function CategoriesPage() {
             <button className="border border-primary" type="submit">
               {editecdCategory ? "Update" : "Create"}
             </button>
-            <button>Cancel</button>
+            <button type="button" conClick={() => {
+              setEditedCategory(null);
+              setCategoryName('');
+              }}>
+              Cancel
+            </button>
           </div>
         </div>
       </form>
@@ -112,9 +115,7 @@ export default function CategoriesPage() {
         {categories?.length > 0 &&
           categories.map((c) => (
             <div className="bg-gray-100 rounded-xl p-2 px-4 flex gap-1 mb-1 items-center">
-              <div className="grow">
-                {c.name}
-              </div>
+              <div className="grow">{c.name}</div>
               <div className="flex gap-1">
                 <button
                   type="button"
@@ -125,9 +126,9 @@ export default function CategoriesPage() {
                 >
                   Edit
                 </button>
-                <button 
-                onClick={() => handleDeleteClick(c._id)}
-                type="button">Delete</button>
+                <button onClick={() => handleDeleteClick(c._id)} type="button">
+                  Delete
+                </button>
               </div>
             </div>
           ))}
