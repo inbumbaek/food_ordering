@@ -68,6 +68,9 @@ export default function EditMenuItemPage() {
         </Link>
       </div>
       <MenuItemForm menuItem={menuItem} onSubmit={handleFormSubmit}/>
+      <div className="max-w-md mx-auto mt-4">
+        <button>Delete this menu item</button>
+      </div>
     </section>
   );
 }
