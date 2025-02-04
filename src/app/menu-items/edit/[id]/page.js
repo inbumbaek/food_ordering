@@ -45,7 +45,7 @@ export default function EditMenuItemPage() {
 
   async function handleDeleteClick() {
     const promise = new Promise(async (resolve, reject) => {
-      const res = await fetch("/api/menu-items?_id" + id, {
+      const res = await fetch("/api/menu-items?_id=" + id, {
         method: "DELETE",
       });
       if (res.ok) resolve();
@@ -85,7 +85,7 @@ export default function EditMenuItemPage() {
       <MenuItemForm menuItem={menuItem} onSubmit={handleFormSubmit} />
       <div className="max-w-md mx-auto mt-4">
         <div className="max-w-xs ml-auto pl-4">
-          <button>Delete this menu item</button>
+          <button onClick={handleDeleteClick}>Delete this menu item</button>
         </div>
       </div>
     </section>
