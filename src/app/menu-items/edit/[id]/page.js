@@ -1,5 +1,6 @@
 "use client";
 
+import DeleteButton from "@/components/DeleteButton";
 import MenuItemForm from "@/components/layout/MenuItemForm";
 import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -85,7 +86,7 @@ export default function EditMenuItemPage() {
       <MenuItemForm menuItem={menuItem} onSubmit={handleFormSubmit} />
       <div className="max-w-md mx-auto mt-4">
         <div className="max-w-xs ml-auto pl-4">
-          <button onClick={handleDeleteClick}>Delete this menu item</button>
+          <DeleteButton label="Delete this menu item" onDelete={handelDeleteClick}/>
         </div>
       </div>
     </section>
