@@ -4,10 +4,10 @@ export default function DeleteButton({label,onDelete}) {
   if (showConfirm) {
     return(
       <div className="flex gap-2">
-        <button type="button">
+        <button type="button" onClick={() => setShowConfirm(false)}>
           Cancel
         </button>
-        <button type="button">
+        <button type="button" className="primary">
           Yes, delete!
         </button>
       </div>
