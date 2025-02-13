@@ -2,6 +2,7 @@
 import UserTabs from "../../components/layout/UserTabs";
 import { useEffect, useState } from "react";
 import { useProfile } from "../../components/UseProfile";
+import DeleteButton from "@/components/DeleteButton";
 
 export default function CategoriesPage() {
   const [categoryName, setCategoryName] = useState("");
@@ -101,10 +102,13 @@ export default function CategoriesPage() {
             <button className="border border-primary" type="submit">
               {editecdCategory ? "Update" : "Create"}
             </button>
-            <button type="button" conClick={() => {
-              setEditedCategory(null);
-              setCategoryName('');
-              }}>
+            <button
+              type="button"
+              conClick={() => {
+                setEditedCategory(null);
+                setCategoryName("");
+              }}
+            >
               Cancel
             </button>
           </div>
@@ -126,9 +130,10 @@ export default function CategoriesPage() {
                 >
                   Edit
                 </button>
-                <button onClick={() => handleDeleteClick(c._id)} type="button">
-                  Delete
-                </button>
+                <DeleteButton
+                  label="Delete"
+                  onDelete={() => handleDeleteClick(c._id)}
+                />
               </div>
             </div>
           ))}
