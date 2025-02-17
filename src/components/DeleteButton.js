@@ -3,7 +3,7 @@ export default function DeleteButton({ label, onDelete }) {
 
   if (showConfirm) {
     return (
-      <div>
+      <div className="fixed top-0 left-0 bg-white p-4 rounded-lg">
         <div>Are you sure you want to delete?</div>
         <div className="flex gap-2 mt-1">
           <button type="button" onClick={() => setShowConfirm(false)}>
