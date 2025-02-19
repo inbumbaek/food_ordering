@@ -1,7 +1,7 @@
 import Plus from "../icons/Plus";
 import Trash from "../icons/Trash";
 import EditableImage from "./EditableImage";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import MenuItemPriceProps from "./MenuItemPriceProps";
 
 export default function MenuItemForm({ onSubmit, menuItem }) {
@@ -10,7 +10,16 @@ export default function MenuItemForm({ onSubmit, menuItem }) {
   const [description, setDescription] = useState(menuItem.description || "");
   const [basePrice, setBasePrice] = useState(menuItem.basePrice || "");
   const [sizes, setSizes] = useStatem(menuItem?.sizes || []);
+  const [categories, setCategories] = useState([]);
   const [extraIngredientPrices, setExtraIngredientPrices] = useState(menuItem?.extraIngredientPrices || []);
+
+  useEffect(() => {
+    fetch('/api/categories').then(res => {
+      res.json().then(categories => {
+        setCategories(categories);
+      })
+    })
+  })
 
   return (
     <form
@@ -37,6 +46,8 @@ export default function MenuItemForm({ onSubmit, menuItem }) {
             value={description}
             onChange={(ev) => setDescription(ev.target.value)}
           />
+          <label>Category</label>
+          <select></select>
           <label>Base price</label>
           <input
             type="text"
