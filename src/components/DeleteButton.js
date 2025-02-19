@@ -10,7 +10,14 @@ export default function DeleteButton({ label, onDelete }) {
             <button type="button" onClick={() => setShowConfirm(false)}>
               Cancel
             </button>
-            <button onClick={onDelete} type="button" className="primary">
+            <button
+              onClick={() => {
+                onDelete();
+                setShowConfirm(false);
+              }}
+              type="button"
+              className="primary"
+            >
               Yes,&nbsp;delete!
             </button>
           </div>
